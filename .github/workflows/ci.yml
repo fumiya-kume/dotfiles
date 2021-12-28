@@ -16,7 +16,6 @@ jobs:
   approve:
     runs-on: macos-latest
     needs: "check"
-    needs: "test"
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
