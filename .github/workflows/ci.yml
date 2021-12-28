@@ -6,16 +6,15 @@ on:
   push:
 
 jobs:
-  check:
+  check_init:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
       - name: Setup
-        run: sh ./setup.sh
-
+        run: sh ./init.sh
   approve:
     runs-on: macos-latest
-    needs: "check"
+    needs: "check_init"
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
