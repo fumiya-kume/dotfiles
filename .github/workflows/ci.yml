@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Setup
-        run: sh ./setup.sh
+        run: sh ./init.sh
 
   approve:
     runs-on: macos-latest
