@@ -1,0 +1,6 @@
+Brewfile.lock.json
+**/.gradle/
+**/.DS_Store
+karabiner/automatic_backups
+vscode/User/globalStorage
+vscode/User/workspaceStorage
