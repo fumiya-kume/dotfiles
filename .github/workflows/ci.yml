@@ -6,7 +6,7 @@ on:
   push:
 
 jobs:
-  test:
+  check:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
@@ -15,6 +15,7 @@ jobs:
 
   approve:
     runs-on: macos-latest
+    needs: "check"
     needs: "test"
     if: ${{ github.event_name == 'pull_request' }}
     steps:
