@@ -6,16 +6,15 @@ on:
   push:
 
 jobs:
-  check:
+  check_init:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
       - name: Setup
         run: sh ./init.sh
-
   approve:
     runs-on: macos-latest
-    needs: "check"
+    needs: "check_init"
     steps:
       - uses: actions/checkout@v2
       - name: approve
