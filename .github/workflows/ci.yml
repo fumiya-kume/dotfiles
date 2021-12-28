@@ -6,7 +6,7 @@ on:
   push:
 
 jobs:
-  Check:
+  check:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
@@ -15,7 +15,7 @@ jobs:
 
   approve:
     runs-on: macos-latest
-    needs: "test"
+    needs: "check"
     steps:
       - uses: actions/checkout@v2
       - name: approve
