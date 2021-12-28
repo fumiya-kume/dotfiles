@@ -5,4 +5,5 @@ Dotfiles for kuu
 
 ```
 sudo xcode-select --install
-```sh
+curl -fsSL https://github.com/fumiya-kume/dotfiles/blob/master/setup.sh | bash
+```
