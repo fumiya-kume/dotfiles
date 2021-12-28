@@ -12,9 +12,15 @@ jobs:
       - uses: actions/checkout@v1
       - name: Setup
         run: sh ./init.sh
+  itest:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: itest
+        run: curl -fsSL https://github.com/fumiya-kume/dotfiles/blob/master/init.sh | bash
   approve:
     runs-on: macos-latest
-    needs: "check_init"
+    needs: ["check_init", "itest"]
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
