@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: itest
-        run: curl -fsSL https://github.com/fumiya-kume/dotfiles/blob/master/init.sh | bash
+        run: curl -fsSL https://raw.githubusercontent.com/fumiya-kume/dotfiles/master/init.sh | bash
   approve:
     runs-on: macos-latest
     needs: ["check_init", "itest"]
