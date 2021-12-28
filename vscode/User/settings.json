@@ -1,0 +1,14 @@
+{
+    "breadcrumbs.enabled": true,
+    "git.autofetch": true,
+    "python.pythonPath": "/anaconda3",
+    "window.zoomLevel": 0,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "terminal.integrated.inheritEnv": false,
+    "editor.renderWhitespace": "all",
+    "maven.executable.path": ".",
+    "python.jediEnabled": false,
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "JetBrainsMonoNerdFontCompleteM-Regular, Menlo, Monaco, 'Courier New', monospace"
+}
