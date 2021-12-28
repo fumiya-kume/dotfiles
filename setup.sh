@@ -7,11 +7,20 @@ ln -sf "$(pwd)/Brewfile" ~
 
 # Homebrew
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew tap homebrew/bundle
-brew bundle
+echo "Install Homebrew"
 
-# Fish
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+
+echo "Setup Homebrew bundle"
+
+brew tap homebrew/bundle
+
+echo "Bundle Install"
+
+brew update > /dev/null
+brew bundle > /dev/null
+
 echo /usr/local/bin/fish | sudo tee -a /etc/shells 2>&1
-sudo chsh -s /usr/local/bin/fish
+
+sudo chsh -s /usr/local/bin/fish > /dev/null
 fish setup.fish
