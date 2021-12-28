@@ -1,12 +1,14 @@
 #!/bin/zsh
 
-# Setup HomeBrew
-ln -sf "$(pwd)/Brewfile" ~
+echo "Install Xcode"
+sh jobs/setup_xcode_install.sh > /dev/null
 
 # Homebrew
 
 echo "✅ Install Homebrew"
 
+# Setup HomeBrew
+ln -sf "$(pwd)/Brewfile" ~
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh) > /dev/null" 
 
 echo "✅ Setup Homebrew bundle"
