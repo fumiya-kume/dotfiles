@@ -15,10 +15,12 @@ jobs:
         run: sh ./init.sh
   itest:
     runs-on: macos-latest
+    env:
+      BRANCH_NAME: ${{github.head_ref}}
     steps:
       - uses: actions/checkout@v1
       - name: itest
-        run: curl -fsSL https://raw.githubusercontent.com/fumiya-kume/dotfiles/master/init.sh | bash
+        run: curl -fsSL https://raw.githubusercontent.com/fumiya-kume/dotfiles/$BRANCH_NAME/init.sh | bash
   approve:
     runs-on: macos-latest
     needs: ["check_init", "itest"]
