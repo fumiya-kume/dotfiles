@@ -5,6 +5,11 @@ ln -sf "$(pwd)/Brewfile" ~
 echo "✅ Setup Homebrew bundle"
 brew tap homebrew/bundle
 
-echo "✅ Bundle Install"
+echo "✅ Brew update"
 brew update > /dev/null
-brew bundle > /dev/null
+echo "✅ Brew upgrade"
+brew upgrade > /dev/null
+echo "✅ Brew cleanup"
+brew cleanup > /dev/null
+echo "✅ Bundle Install"
+brew bundle

@@ -25,7 +25,7 @@ brew "peco"
 brew "scrcpy"
 brew "smartmontools"
 brew "starship"
-brew "swiftlint"
+# brew "swiftlint", args: ["force"]
 brew "tig"
 cask "font-jetbrains-mono-nerd-font"
 cask "fork"
