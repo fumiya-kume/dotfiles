@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-echo "Install Xcode"
+echo "✅ Install Xcode"
 sh jobs/setup_xcode_install.sh
 
 # Homebrew
