@@ -18,4 +18,4 @@ echo "✅ Copy files"
 fish jobs/setup_config_files_copy.fish
 
 echo "✅ Set Mac defaults"
-fish jobs/setup_mac_defaults.fish
+fish jobs/mac_defaults.fish
