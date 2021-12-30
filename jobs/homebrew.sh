@@ -1,5 +1,6 @@
-# Setup HomeBrew
+echo "✅ Copy Brewfile"
 ln -sf "$(pwd)/Brewfile" ~
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null 
 
 echo "✅ Setup Homebrew bundle"
