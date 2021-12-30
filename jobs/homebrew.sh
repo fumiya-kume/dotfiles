@@ -7,5 +7,6 @@ brew tap homebrew/bundle
 
 echo "✅ Brew update and upgrade"
 brew update > /dev/null && brew upgrade > /dev/null
+
 echo "✅ Bundle Install"
 brew bundle > /dev/null
