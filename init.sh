@@ -19,3 +19,6 @@ fish jobs/setup_config_files_copy.fish
 
 echo "✅ Set Mac defaults"
 fish jobs/setup_mac_defaults.fish
+
+echo "✅ Setup SSH for Github"
+fish jobs/setup_ssh_github.fish
