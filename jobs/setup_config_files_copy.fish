@@ -1,10 +1,17 @@
-# config
+
+echo "remove .config folder if exist"
 rm -rf ~/.config 2> /dev/null
+
+echo "add .config filder"
 mkdir ~/.config
+
+echo "make link to .config folder"
 ln -s "$pwd/.config" ~/.config
 
-# Git
+echo "pwd"
+pwd
 
+# Git
 assert_has git
 ln -s "$pwd/.gitconfig" ~/.gitconfig
 
