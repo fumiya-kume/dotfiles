@@ -6,7 +6,7 @@ echo "✅ Setup Homebrew bundle"
 brew tap homebrew/bundle
 
 echo "✅ Brew update and upgrade"
-brew update -q && brew upgrade -q
+brew update > /dev/null && brew upgrade > /dev/null
 
 echo "✅ Bundle Install"
-brew bundle -q
+brew bundle > /dev/null
