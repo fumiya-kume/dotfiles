@@ -18,6 +18,7 @@ else
    echo /usr/local/bin/fish | sudo tee -a /etc/shells 2>&1
    sudo chsh -s /usr/local/bin/fish > /dev/null
 fi
+fish
 
 echo "✅ Copy files"
 fish jobs/setup_config_files_copy.fish
