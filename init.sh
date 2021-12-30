@@ -15,7 +15,7 @@ echo /usr/local/bin/fish | sudo tee -a /etc/shells 2>&1
 sudo chsh -s /usr/local/bin/fish
 
 echo "✅ Copy files"
-fish jobs/setup_config_files_copy.fish
+fish jobs/files_copy.fish
 
 echo "✅ Set Mac defaults"
 fish jobs/mac_defaults.fish
