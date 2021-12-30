@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 echo "✅ Git Clone"
-git clone https://github.com/fumiya-kume/dotfiles.git ~/dotfiles > /dev/null
+git clone https://github.com/fumiya-kume/dotfiles.git ~/dotfiles -q
 cd ~/dotfiles
 
 echo "✅ Install Xcode"
