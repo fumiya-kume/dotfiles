@@ -10,8 +10,6 @@ brew update > /dev/null
 echo "✅ Brew upgrade"
 brew upgrade > /dev/null
 brew bundle > /dev/null
-echo "✅ Brew cleanup"
-brew cleanup > /dev/null
 echo "✅ Bundle Install"
 brew bundle
 brew bundle
