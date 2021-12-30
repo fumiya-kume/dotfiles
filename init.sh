@@ -20,10 +20,10 @@ else
 fi
 
 echo "✅ Copy files"
-fish cd ~/dotfiles && fish jobs/setup_config_files_copy.fish
+. jobs/setup_config_files_copy.sh
 
 echo "✅ Set Mac defaults"
-fish cd ~/dotfiles && fish jobs/setup_mac_defaults.fish
+. jobs/setup_mac_defaults.sh
 
 echo "✅ Setup SSH for Github"
-fish cd ~/dotfiles && fish jobs/setup_ssh_github.fish
+. jobs/setup_ssh_github.sh
