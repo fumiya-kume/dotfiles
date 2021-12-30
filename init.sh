@@ -19,8 +19,6 @@ else
    sudo chsh -s /usr/local/bin/fish
 fi
 
-
-
 echo "✅ Copy files"
 fish jobs/setup_config_files_copy.fish
 
