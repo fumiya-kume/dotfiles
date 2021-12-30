@@ -8,7 +8,7 @@ echo "✅ Install Xcode"
 sh jobs/xcode.sh
 
 echo "✅ Install Homebrew"
-sh jobs/setup_homebrew.sh
+sh jobs/homebrew.sh
 
 echo "✅ Set fish as default shell"
 echo /usr/local/bin/fish | sudo tee -a /etc/shells 2>&1
