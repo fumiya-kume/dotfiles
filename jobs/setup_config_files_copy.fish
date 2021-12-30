@@ -1,12 +1,14 @@
-
 echo "remove .config folder if exist"
-rm -rf ~/.config 2> /dev/null
+# rm -rf ~/.config 2> /dev/null
+rm -rf ~/.config
 
 echo "add .config filder"
 mkdir ~/.config
 
 echo "make link to .config folder"
 ln -s "$pwd/.config" ~/.config
+
+fish
 
 echo "pwd"
 pwd
