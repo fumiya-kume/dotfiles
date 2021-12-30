@@ -4,7 +4,7 @@ echo "✅ Git Clone"
 git clone https://github.com/fumiya-kume/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
-echo "Install Xcode"
+echo "✅ Install Xcode"
 sh jobs/setup_xcode_install.sh
 
 echo "✅ Install Homebrew"
