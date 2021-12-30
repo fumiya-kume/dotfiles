@@ -1,4 +1,5 @@
 # config
+rm -rf ~/.config 2> /dev/null
 mkdir ~/.config
 ln -s "$pwd/.config" ~/.config
 
