@@ -1,13 +1,11 @@
 #!/bin/zsh
 
 echo "✅ Git Clone"
-git clone https://github.com/fumiya-kume/dotfiles.git ~/dotfiles
+git clone https://github.com/fumiya-kume/dotfiles.git ~/dotfiles > /dev/null
 cd ~/dotfiles
 
-echo "Install Xcode"
-sh jobs/setup_xcode_install.sh
-
-# Homebrew
+echo "✅ Install Xcode"
+sh jobs/install_xcode.sh
 
 echo "✅ Install Homebrew"
 sh jobs/setup_homebrew.sh

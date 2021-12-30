@@ -3,6 +3,7 @@ name: dotfiles CI
 on:
   pull_request:
     branches: [master]
+  push:
 jobs:
   check_init:
     runs-on: macos-latest
