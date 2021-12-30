@@ -1,0 +1,46 @@
+name: Unit Test
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+jobs:
+  full_install:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-output
+        with:
+          path: ~/
+          key: ${{ github.sha }}
+          restore-keys: ${{ github.sha }}
+      - name: Setup
+        run: sh ./workflow/full_install.sh
+  update_config:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-output
+        with:
+          path: ~/
+          key: ${{ github.sha }}
+          restore-keys: ${{ github.sha }}
+      - name: Setup
+        run: sh ./workflow/update_config.sh
+  approve:
+    runs-on: macos-latest
+    needs: ["full_install", "update_config"]
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: approve
+        run: gh pr review ${{ github.event.number }} --comment --body "SetUp Home Brew Pass 🙌"
+        if: ${{ success() }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

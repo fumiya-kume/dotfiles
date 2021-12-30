@@ -8,6 +8,7 @@ disabled = false
 
 [git_branch]
 symbol = " "
+format = "[$symbol$branch]($style) "
 
 [hostname]
 ssh_only = true
@@ -27,6 +28,10 @@ tag_disabled = false
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 cherry_pick = "[🍒 PICKING](bold red)"
 
+[directory]
+repo_root_style = "bold cyan"
+style = "cyan"
+
 [git_status]
 conflicted = "🏳"
 ahead = "🏎💨"
@@ -38,8 +43,6 @@ modified = "📝"
 staged = '[++\($count\)](green)'
 renamed = "👅"
 deleted = "🗑"
-
-
 
 [aws]
 symbol = " "

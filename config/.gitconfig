@@ -13,4 +13,6 @@
 	default = current
 [color]
 	ui = auto
+[commit]
+	gpgsign = true
 [ghq]

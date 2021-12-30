@@ -1,8 +1,11 @@
 set fish_greeting ""
 
-set PATH /Users/kuxu/flutter/bin  $PATH
+set PATH ~/flutter/bin  $PATH
+set PATH ~/.bin $PATH
 # set -x PATH $HOME/.anyenv/bin $PATH
 set PATH $HOME/.jenv/bin $PATH
+set -x GOPATH $HOME/go
+set -x PATH $PATH $GOPATH/bin
 
 # ~/.anyenv/bin/anyenv init - fish | source
 status --is-interactive; and source (jenv init -|psub)
