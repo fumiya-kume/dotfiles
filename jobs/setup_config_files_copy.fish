@@ -8,11 +8,10 @@ assert_has git
 ln -s "$pwd/.gitconfig" ~/.gitconfig
 
 echo "✅ Generate SSH key for Github"
-mkdir -p ~/.ssh
+ln -s "$pwd/.ssh" ~/.ssh
 ssh-keygen -t rsa -f ~/.ssh/github -N '' -q
 
 # Tig
-
 assert_has tig
 ln -s "$pwd/.tigrc" ~/.tigrc
 
