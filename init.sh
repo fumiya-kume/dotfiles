@@ -7,8 +7,6 @@ cd ~/dotfiles
 echo "Install Xcode"
 sh jobs/setup_xcode_install.sh
 
-# Homebrew
-
 echo "✅ Install Homebrew"
 sh jobs/setup_homebrew.sh
 
