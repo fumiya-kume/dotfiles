@@ -9,4 +9,4 @@ echo "✅ Brew update and upgrade"
 brew update -q && brew upgrade -q
 
 echo "✅ Bundle Install"
-brew bundle > /dev/null
+brew bundle -q
