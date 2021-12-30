@@ -11,5 +11,3 @@ echo "✅ Brew upgrade"
 brew upgrade > /dev/null
 brew bundle > /dev/null
 echo "✅ Bundle Install"
-brew bundle
-brew bundle
