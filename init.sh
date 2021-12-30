@@ -13,10 +13,10 @@ sh jobs/setup_homebrew.sh
 echo "✅ Set fish as default shell"
 if [[ `uname -m` == 'arm64' ]]; then
    echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells 2>&1
-   sudo chsh -s /opt/homebrew/bin/fish
+   sudo chsh -s /opt/homebrew/bin/fish > /dev/null
 else
    echo /usr/local/bin/fish | sudo tee -a /etc/shells 2>&1
-   sudo chsh -s /usr/local/bin/fish
+   sudo chsh -s /usr/local/bin/fish > /dev/null
 fi
 
 echo "✅ Copy files"
