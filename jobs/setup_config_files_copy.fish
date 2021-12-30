@@ -16,10 +16,10 @@ echo "------------------"
 pbcopy < ~/.ssh/github.pub && pbpaste
 echo "------------------"
 
-# Tig
+echo "✅ Copy tig config"
 assert_has tig
 ln -s "$pwd/.tigrc" ~/.tigrc
 
-# VSCode
-
+echo "✅ Copy VSCode config"
+mkdir -p ~/Library/Application\ Support/Code/
 ln -sf "$pwd/vscode/User/" ~/Library/Application\ Support/Code/
