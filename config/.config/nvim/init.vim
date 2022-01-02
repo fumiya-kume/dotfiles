@@ -10,6 +10,7 @@ set clipboard+=unnamed,unnamedplus
 set syntax=enable
 " 検索した文字のハイライト
 set hls
+let mapleader = "\<Space>"
 
 if &shell =~# 'fish$'
     set shell=zsh
@@ -35,7 +36,6 @@ command! Myterm call Myterm()
 if has('vim_starting')
     Myterm
 endif
-
 
 "上のエディタウィンドウと下のターミナルウィンドウ(ターミナル挿入モード)を行き来
 tnoremap <C-t> <C-\><C-n><C-w>k
@@ -71,8 +71,12 @@ autocmd BufNewFile,BufRead * Setup
 
 "// PLUGIN SETTINGS
 call plug#begin('~/.config/nvim/plugged')
- Plug 'preservim/nerdtree'
+ Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 " NERDTree をトグルする
-nmap <C-f> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>t :NERDTreeFocus<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+
