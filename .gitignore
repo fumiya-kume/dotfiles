@@ -1,3 +1,5 @@
 config/.gnupg/
-config/.gnupf/github*
+config/.ssh/github*
+config/.ssh/known*
 !config/.gnupg/gpg-agent.conf
+
