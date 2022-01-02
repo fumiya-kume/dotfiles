@@ -8,6 +8,8 @@ set fileencoding=utf-8
 set wildmode=longest,full
 set clipboard+=unnamed,unnamedplus
 set syntax=enable
+" 検索した文字のハイライト
+set hls
 
 if &shell =~# 'fish$'
     set shell=zsh
@@ -66,3 +68,11 @@ command! Setup call Setup()
 
 "ファイルを開き直したときに実行コマンドを再設定
 autocmd BufNewFile,BufRead * Setup
+
+"// PLUGIN SETTINGS
+call plug#begin('~/.config/nvim/plugged')
+ Plug 'preservim/nerdtree'
+call plug#end()
+
+" NERDTree をトグルする
+nmap <C-f> :NERDTreeToggle<CR>
