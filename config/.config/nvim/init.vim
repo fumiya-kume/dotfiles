@@ -10,7 +10,7 @@ set clipboard+=unnamed,unnamedplus
 set syntax=enable
 
 if &shell =~# 'fish$'
-    set shell=sh
+    set shell=zsh
 endif
 
 " インラインブロックを中括弧付きのブロックに展開
