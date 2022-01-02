@@ -16,3 +16,5 @@
 [commit]
 	gpgsign = true
 [ghq]
+[gpg]
+	program = gpg
