@@ -1,0 +1,3 @@
+config/.gnupg/
+config/.gnupf/github*
+!config/.gnupg/gpg-agent.conf
