@@ -3,6 +3,7 @@ set expandtab
 set smartindent
 set shiftwidth=1
 set autochdir
+set autoread
 set encoding=utf-8
 set fileencoding=utf-8
 set wildmode=longest,full
