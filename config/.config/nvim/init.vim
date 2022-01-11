@@ -8,6 +8,7 @@ set fileencoding=utf-8
 set wildmode=longest,full
 set clipboard+=unnamed,unnamedplus
 set syntax=enable
+filetype on
 " 検索した文字のハイライト
 set hls
 let mapleader = "\<Space>"
@@ -68,11 +69,15 @@ command! Setup call Setup()
 
 "ファイルを開き直したときに実行コマンドを再設定
 autocmd BufNewFile,BufRead * Setup
+" Kotlin のファイルをKotlinとして扱う
+filetype plugin indent on
+autocmd BufReadPost *.kt setlocal filetype=kotlin
 
 "// PLUGIN SETTINGS
 call plug#begin('~/.config/nvim/plugged')
  Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
+ Plug 'udalov/kotlin-vim'
 call plug#end()
 
 " NERDTree をトグルする
