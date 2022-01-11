@@ -13,5 +13,6 @@ set -x PATH $PATH $GOPATH/bin
 # status --is-interactive; and source (jenv init -|psub)
 
 alias gcm='git commit -m'
+alias vim='nvim'
 
 starship init fish | source
