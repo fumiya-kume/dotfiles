@@ -14,5 +14,7 @@ set -x PATH $PATH $GOPATH/bin
 
 alias gcm='git commit -m'
 alias vim='nvim'
+alias gpush='git push origin (git rev-parse --abbrev-ref HEAD)'
+alias gpull='git pull origin (git rev-parse --abbrev-ref HEAD)'
 
 starship init fish | source
