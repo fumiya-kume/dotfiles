@@ -1,0 +1,43 @@
+font:
+  normal:
+    family: 'JetBrainsMono Nerd Font Mono'
+    style: Regular
+  bold:
+    family: 'JetBrainsMono Nerd Font Mono'
+    style: Bold
+  size: 22.0
+  use_thin_strokes: true
+window:
+  dimensions:
+    columns: 0
+    lines: 0
+  opacity: 0.8
+  startup_mode: SimpleFullscreen
+draw_bold_text_with_bright_colors: true
+colors:
+  # Default colors
+  primary:
+    background: '0x10100E'
+    foreground: '0xC6C6C4'
+
+  # Normal colors
+  normal:
+    black:   '0x10100E'
+    red:     '0xC40233'
+    green:   '0x009F6B'
+    yellow:  '0xFFD700'
+    blue:    '0x0087BD'
+    magenta: '0x9A4EAE'
+    cyan:    '0x20B2AA'
+    white:   '0xC6C6C4'
+
+  # Bright colors
+  bright:
+    black:   '0x696969'
+    red:     '0xFF2400'
+    green:   '0x03C03C'
+    yellow:  '0xFDFF00'
+    blue:    '0x007FFF'
+    magenta: '0xFF1493'
+    cyan:    '0x00CCCC'
+    white:   '0xFFFAFA'
