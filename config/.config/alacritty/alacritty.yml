@@ -15,12 +15,10 @@ window:
   startup_mode: SimpleFullscreen
 draw_bold_text_with_bright_colors: true
 colors:
-  # Default colors
   primary:
     background: '0x10100E'
     foreground: '0xC6C6C4'
 
-  # Normal colors
   normal:
     black:   '0x10100E'
     red:     '0xC40233'
@@ -31,7 +29,6 @@ colors:
     cyan:    '0x20B2AA'
     white:   '0xC6C6C4'
 
-  # Bright colors
   bright:
     black:   '0x696969'
     red:     '0xFF2400'
