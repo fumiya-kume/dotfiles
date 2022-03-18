@@ -8,6 +8,7 @@ set PATH /opt/homebrew/bin $PATH
 set PATH $HOME/.jenv/bin $PATH
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
+set -x PATH /usr/local/bin $PATH
 
 # ~/.anyenv/bin/anyenv init - fish | source
 # status --is-interactive; and source (jenv init -|psub)
