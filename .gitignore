@@ -5,4 +5,5 @@ config/.ssh/known*
 config/.config/gh/hosts.yml
 config/.gitconfig
 config/.config/AWSVPNClient
+config/.config/gcloud
 .DS_Store
