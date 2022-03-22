@@ -4,4 +4,6 @@ config/.ssh/known*
 !config/.gnupg/gpg-agent.conf
 config/.config/gh/hosts.yml
 config/.gitconfig
+config/.config/AWSVPNClient
+config/.config/gcloud
 .DS_Store
