@@ -3,7 +3,7 @@ BASE_CONFIG="$BASE/config"
 JOB_PATH="$BASE/jobs"
 
 echo "✅ Install Xcode"
-. ./jobs/install_xcode.sh
+sudo xcode-select --install > /dev/null
 
 echo "✅ Copy files"
 . ./jobs/setup_config_files_copy.sh

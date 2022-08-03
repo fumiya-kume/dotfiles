@@ -1,1 +1,0 @@
-sudo xcode-select --install > /dev/null
