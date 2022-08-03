@@ -49,7 +49,7 @@ is_exist_link(){
     fi
 }
 
-for i in ~/.config ~/.gnupg ~/.tigrc ~/.gitconfig ~/.Brewfile
+for i in ~/.config ~/.gnupg ~/.tigrc ~/.gitconfig.remote ~/.Brewfile
 do
     is_exist_link $i
 done
