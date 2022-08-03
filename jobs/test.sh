@@ -3,7 +3,6 @@ is_exist(){
       echo "  ✅ $1"
    else
       echo "  ❌ $1"
-      # exit 1
    fi
 }
 
@@ -17,7 +16,6 @@ is_exist_file(){
         echo "  ✅ $1"
     else 
         echo "  ❌ $1"
-        # exit 1
     fi
 }
 
@@ -31,7 +29,6 @@ is_exist_dir(){
         echo "  ✅ $1"
     else 
         echo "  ❌ $1"
-        # exit 1
     fi
 }
 
@@ -45,7 +42,6 @@ is_exist_link(){
         echo "  ✅ $1"
     else 
         echo "  ❌ $1"
-        # exit 1
     fi
 }
 
