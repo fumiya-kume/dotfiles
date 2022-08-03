@@ -5,7 +5,7 @@ JOB_PATH="$BASE/jobs"
 cd ~/ghq/dotfiles
 
 echo "✅ Install Xcode"
-sudo sh ./jobs/install_xcode.sh
+sudo xcode-select --install > /dev/null
 
 echo "✅ Copy files"
 sh ./jobs/setup_config_files_copy.sh
