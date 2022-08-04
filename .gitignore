@@ -7,4 +7,6 @@ config/.config/AWSVPNClient
 config/.config/gcloud
 config/.config/GitHub/ActionsService
 config/.config/karabiner/automatic_backups
+config/.config/xbuild/*.xml
 .DS_Store
+config/.config/.mono/keypairs
