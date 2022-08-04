@@ -4,6 +4,7 @@ on:
   pull_request:
     branches: [master]
   push:
+    branches: [master]
 jobs:
   full_install:
     runs-on: macos-latest
