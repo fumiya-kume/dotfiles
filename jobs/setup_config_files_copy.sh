@@ -1,4 +1,3 @@
-rm -rf ~/.config
 ln -s -f "$(pwd)/config/.config/" ~
 ln -s -f "$(pwd)/config/.gnupg/" ~
 ln -fs "$(pwd)/config/.tigrc" ~/.tigrc
