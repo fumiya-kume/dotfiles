@@ -19,7 +19,7 @@ brew "gitmoji"
 brew "gnu-sed"
 brew "gnu-time"
 brew "gnupg"
-brew "go", args: ["force"]
+brew "go", args: ["overwrite"]
 brew "openjdk"
 brew "tmux"
 brew "gradle"
@@ -40,7 +40,7 @@ brew "pinentry-mac"
 brew "scrcpy"
 brew "smartmontools"
 brew "starship"
-brew "swiftlint", args: ["force"]
+brew "swiftlint", args: ["overwrite"]
 brew "tig"
 cask "figma"
 cask "android-platform-tools"
