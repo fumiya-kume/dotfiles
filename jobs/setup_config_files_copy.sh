@@ -4,9 +4,18 @@ ln -fs "$(pwd)/config/.tigrc" ~/.tigrc
 ln -fs "$(pwd)/config/.gitconfig.remote" ~/.gitconfig.remote
 mkdir -p "~/Library/Application\ Support/Code/"
 ln -nfs "$(pwd)/config/vscode/User/" "~/Library/Application\ Support/Code/"
-ln -s "$(pwd)/config/.Brewfile" ~/.Brewfile
-ln -s "$(pwd)/config/.hammerspoon" ~/.hammerspoon
-ln -s "$(pwd)/config/.tmux/" ~/.tmux
+
+if [[ ! -e ~/.Brewfile ]]; then
+  ln -s "$(pwd)/config/.Brewfile" ~/.Brewfile
+fi
+
+if [[ ! -e ~/.hammerspoon ]]; then
+  ln -s "$(pwd)/config/.hammerspoon" ~/.hammerspoon
+fi
+
+if [[ ! -e ~/.tmux ]]; then
+  ln -s "$(pwd)/config/.tmux/" ~/.tmux
+fi
 
 ln -fs "$(pwd)/config/.ssh/config" ~/.ssh/config
 git config --global include.path "~/.gitconfig.remote"
