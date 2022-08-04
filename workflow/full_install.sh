@@ -2,8 +2,6 @@ BASE=pwd
 BASE_CONFIG="$BASE/config"
 JOB_PATH="$BASE/jobs"
 
-cd ~/ghq/dotfiles
-
 echo "✅ Install Xcode"
 sudo xcode-select --install > /dev/null
 
