@@ -1,0 +1,3 @@
+[submodule "vim/pack/kotlin/start/kotlin-vim"]
+	path = vim/pack/kotlin/start/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim.git
