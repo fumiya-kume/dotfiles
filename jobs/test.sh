@@ -6,11 +6,6 @@ is_exist(){
    fi
 }
 
-for i in brew fish peco ghq git gh ninja 
-do
-    is_exist $i
-done
-
 is_exist_file(){
     if [ -f "$1" ]; then
         echo "  ✅ $1"
@@ -18,11 +13,6 @@ is_exist_file(){
         echo "  ❌ $1"
     fi
 }
-
-for i in ~/.config/fish/config.fish ~/.config/starship.toml
-do
-    is_exist_file $i
-done
 
 is_exist_dir(){
     if [ -d "$1" ]; then
@@ -32,11 +22,6 @@ is_exist_dir(){
     fi
 }
 
-for i in  ~/.config/fish ~/.config/iterm ~/.config/karabiner
-do
-    is_exist_dir $i
-done
-
 is_exist_link(){
     if [ -h "$1" ]; then
         echo "  ✅ $1"
@@ -45,7 +30,23 @@ is_exist_link(){
     fi
 }
 
-for i in ~/.config ~/.gnupg ~/.tigrc ~/.gitconfig.remote ~/.Brewfile
-do
-    is_exist_link $i
-done
+is_exist brew
+is_exist fish
+is_exist peco
+is_exist ghq
+is_exist git
+is_exist gh
+is_exist ninja
+
+is_exist_file ~/.config/fish/config.fish
+is_exist_file ~/.config/starship.toml
+
+is_exist_dir ~/.config/fish
+is_exist_dir ~/.config/iterm
+is_exist_dir ~/.config/karabiner
+
+is_exist_link ~/.Brewfile
+is_exist_link ~/.gitconfig.remote 
+is_exist_link ~/.tigrc 
+is_exist_link ~/.gnupg 
+is_exist_link ~/.config 
