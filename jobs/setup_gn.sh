@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir ~/tmp
-git clone https://gn.googlesource.com/gn ~/tmp/gn > /dev/null
+git clone https://gn.googlesource.com/gn ~/tmp/gn -q
 python ~/tmp/gn/build/gen.py
 ninja -C ~/tmp/gn/out > /dev/null
 
