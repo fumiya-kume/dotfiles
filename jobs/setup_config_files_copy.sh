@@ -1,4 +1,5 @@
-sudo ln -s -f "$(pwd)/config/.config/" ~
+rm ~/.config
+ln -s -f "$(pwd)/config/.config/" ~
 ln -s -f "$(pwd)/config/.gnupg/" ~
 ln -fs "$(pwd)/config/.tigrc" ~/.tigrc
 ln -fs "$(pwd)/config/.gitconfig.remote" ~/.gitconfig.remote
