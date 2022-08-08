@@ -1,17 +1,22 @@
+# ignore files
+.DS_Store
 Brewfile.lock.json
-**/.gradle/
+
+# ignore config
+
 karabiner/automatic_backups
 vscode/User/globalStorage
 vscode/User/workspaceStorage
-config/.gnupg/
-config/.ssh/*
+.gnupg/
+.ssh/
 !config/.gnupg/gpg-agent.conf
-config/.config/gh/hosts.yml
-config/.gitconfig
-config/.config/AWSVPNClient
-config/.config/gcloud
-config/.config/GitHub/ActionsService
-config/.config/karabiner/automatic_backups
-config/.config/xbuild/*.xml
-.DS_Store
-config/.config/.mono/keypairs
+.config/gh/hosts.yml
+.config/AWSVPNClient
+.config/gcloud
+.config/GitHub/ActionsService
+.config/karabiner/automatic_backups
+.config/xbuild/*.xml
+.config/.mono/keypairs
+
+# Gradle folder
+.gradle/
