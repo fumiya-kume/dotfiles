@@ -11,5 +11,5 @@
 # How to use 
 
 ```
-curl -fsSL https://raw.githubusercontent.com/fumiya-kume/dotfiles/master/bootstrap.sh | bash
+curl -fsSL dotfile.kuu.systems/bootstrap.sh | bash
 ```
