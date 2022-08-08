@@ -15,7 +15,3 @@ dotfiles repository for `fish`, `iTerm`, `peco`, `ghq` users!
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/fumiya-kume/dotfiles/master/bootstrap.sh)"
 ```
-
-# Screenshots
-
-![](https://user-images.githubusercontent.com/16269075/147844407-60c4b210-1dca-47ff-9eac-9e760ac7a113.png)
