@@ -14,6 +14,7 @@ ln -nfs "$(pwd)/config/vscode/User/" "~/Library/Application\ Support/Code/"
 
 ln -fs "$(pwd)/config/.ssh/config" ~/.ssh/config
 git config --global include.path "~/.gitconfig.remote"
+git config --global core.excludesfile "~/.gitignore"
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -q' > /dev/null
