@@ -4,6 +4,7 @@ ln -s -f "$(pwd)/config/.gnupg/" ~
 ln -fs "$(pwd)/config/.tigrc" ~/.tigrc
 ln -fs "$(pwd)/config/.gitconfig.remote" ~/.gitconfig.remote
 ln -fs "$(pwd)/config/.gitmodules" ~/.gitmodules
+ln -fs "$(pwd)/config/.gitignore" ~/.gitignore
 mkdir -p "~/Library/Application\ Support/Code/"
 ln -nfs "$(pwd)/config/vscode/User/" "~/Library/Application\ Support/Code/"
 
