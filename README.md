@@ -13,5 +13,5 @@ dotfiles repository for `fish`, `iTerm`, `peco`, `ghq` users!
 # How to use 
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/fumiya-kume/dotfiles/master/bootstrap.sh)"
+curl -fsSL https://raw.githubusercontent.com/fumiya-kume/dotfiles/master/bootstrap.sh | bash
 ```
