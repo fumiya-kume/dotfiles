@@ -25,9 +25,9 @@ jobs:
         with:
           path: ~/ghq
       - name: Setup
-        run: sh ./run.sh
+        run: sh ~/ghq/run.sh
       - name: Setup2
-        run: sh ./run.sh
+        run: sh ~/ghq/run.sh
   approve:
     runs-on: macos-latest
     needs: ["full_install", "update_config", "double_install"]
