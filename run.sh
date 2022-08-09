@@ -9,8 +9,14 @@ sh ./jobs/setup_config_files_copy.sh
 echo "✅ Install Homebrew"
 . ./jobs/setup_homebrew.sh
 
-echo "✅ Set fish as default shell"
-. ./jobs/setup_fish.sh
+echo "✅ Set fish"
+if [[ `uname -m` == 'arm64' ]]; then
+   echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells 2>&1 > /dev/null
+   sudo chsh -s /opt/homebrew/bin/fish > /dev/null
+else
+   echo /usr/local/bin/fish | sudo tee -a /etc/shells 2>&1 > /dev/null
+   sudo chsh -s /usr/local/bin/fish > /dev/null
+fi
 
 echo "✅ Set Mac defaults"
 . ./jobs/setup_mac_defaults.sh
