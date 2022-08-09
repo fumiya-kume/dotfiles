@@ -10,28 +10,12 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-output
-        with:
-          path: ~/
-          key: ${{ github.sha }}
-          restore-keys: ${{ github.sha }}
       - name: Setup
         run: sh ./workflow/full_install.sh
   update_config:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-output
-        with:
-          path: ~/
-          key: ${{ github.sha }}
-          restore-keys: ${{ github.sha }}
       - name: Setup
         run: sh ./workflow/update_config.sh
   double_install:
