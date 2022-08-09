@@ -22,12 +22,10 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          path: ~/ghq
       - name: Setup
-        run: sh ~/ghq/run.sh
+        run: sh ./run.sh
       - name: Setup2
-        run: sh ~/ghq/run.sh
+        run: sh ./run.sh
   approve:
     runs-on: macos-latest
     needs: ["full_install", "update_config", "double_install"]
