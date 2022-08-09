@@ -46,7 +46,8 @@ is_exist_dir ~/.config/iterm
 is_exist_dir ~/.config/karabiner
 
 is_exist_link ~/.Brewfile
-is_exist_link ~/.gitconfig.remote 
+is_exist_link ~/.gitconfig.remote
+is_exist_link ~/.gitmodules
 is_exist_link ~/.tigrc 
 is_exist_link ~/.gnupg 
 is_exist_link ~/.config 
