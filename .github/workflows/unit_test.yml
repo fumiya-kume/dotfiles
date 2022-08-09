@@ -26,6 +26,11 @@ jobs:
         run: sh ./run.sh
       - name: Setup2
         run: sh ./run.sh
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const io = require('@actions/io');
+            console.log(io.exists("~/.gitconfig"))
   approve:
     runs-on: macos-latest
     needs: ["full_install", "update_config", "double_install"]
