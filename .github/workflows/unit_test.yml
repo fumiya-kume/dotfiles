@@ -13,7 +13,7 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            console.log(await exists("~/.gitconfig"))
+            console.log(await io-util.exists("~/.gitconfig"))
   install:
     runs-on: macos-latest
     steps:
