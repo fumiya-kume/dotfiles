@@ -14,6 +14,21 @@ jobs:
         run: sh ./run.sh
       - name: Setup2
         run: sh ./run.sh
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs')
+            const homedir = require('os').homedir();
+            console.log()
+            const outputs = [[{data: 'path', header:true}, {data: 'result', header: true}]]
+            const check = async (path) => {
+              const result = await fs.existsSync(homedir + "/.gitconfig")
+              outputs.push([path, result?"✅":"❌"])
+            }
+            await check("/.gitconfig")
+            await core.summary
+              .addTable(outputs)
+              .write()
   approve:
     runs-on: macos-latest
     needs: "install"
