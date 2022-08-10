@@ -18,14 +18,14 @@ jobs:
         with:
           script: |
             const fs = require('fs')
-            const homedir = require('os').homedir();
+            const homedir = require('os').homedir() + "/";
             console.log()
             const outputs = [[{data: 'path', header:true}, {data: 'result', header: true}]]
             const check = async (path) => {
-              const result = await fs.existsSync(homedir + "/.gitconfig")
+              const result = await fs.existsSync(homedir + path)
               outputs.push([path, result?"✅":"❌"])
             }
-            await check("/.gitconfig")
+            await check(".gitconfig")
             await core.summary
               .addTable(outputs)
               .write()
