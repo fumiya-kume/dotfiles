@@ -1,6 +1,7 @@
 # ignore files
 .DS_Store
 Brewfile.lock.json
+~/.gitconfig
 
 # ignore config
 
