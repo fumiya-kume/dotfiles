@@ -6,15 +6,6 @@ on:
   push:
     branches: [master]
 jobs:
-  check:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            const fs = require('fs')
-            console.log(await fs.existsSync("~/.gitconfig"))
   install:
     runs-on: macos-latest
     steps:
@@ -26,7 +17,8 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            console.log(await fs.exists("~/.gitconfig"))
+            const fs = require('fs')
+            console.log(await fs.existsSync("~/.gitconfig"))
   approve:
     runs-on: macos-latest
     needs: "install"
