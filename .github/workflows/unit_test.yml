@@ -6,19 +6,7 @@ on:
   push:
     branches: [master]
 jobs:
-  full_install:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup
-        run: sh ./workflow/full_install.sh
-  update_config:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup
-        run: sh ./workflow/update_config.sh
-  double_install:
+  install:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,7 +16,7 @@ jobs:
         run: sh ./run.sh
   approve:
     runs-on: macos-latest
-    needs: ["full_install", "update_config", "double_install"]
+    needs: "install"
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v2      
