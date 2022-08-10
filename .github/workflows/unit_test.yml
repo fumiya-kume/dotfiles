@@ -18,7 +18,8 @@ jobs:
         with:
           script: |
             const fs = require('fs')
-            console.log(await fs.existsSync("~/.gitconfig"))
+            const homedir = require('os').homedir();
+            console.log(await fs.existsSync(homedir + "/.gitconfig"))
   approve:
     runs-on: macos-latest
     needs: "install"
