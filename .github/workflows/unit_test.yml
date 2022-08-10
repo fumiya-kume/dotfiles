@@ -19,7 +19,16 @@ jobs:
           script: |
             const fs = require('fs')
             const homedir = require('os').homedir();
-            console.log(await fs.existsSync(homedir + "/.gitconfig"))
+            console.log()
+            const outputs = [[{data: 'path', header:true}, {data: 'result', header: true}]]
+            const check = (path) => {
+              const result = await fs.existsSync(homedir + "/.gitconfig")
+              outputs.push(homedir+path, result?"✅":"❌")
+            }
+            check("/.gitconfig")
+            await core.summary
+              .addTable(outputs)
+              .write()
   approve:
     runs-on: macos-latest
     needs: "install"
