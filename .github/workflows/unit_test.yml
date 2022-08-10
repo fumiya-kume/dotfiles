@@ -13,7 +13,8 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            console.log(await io-util.exists("~/.gitconfig"))
+            import * as fs from 'fs'
+            console.log(await fs.existsSync("~/.gitconfig"))
   install:
     runs-on: macos-latest
     steps:
