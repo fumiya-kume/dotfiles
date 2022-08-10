@@ -23,7 +23,7 @@ jobs:
             const outputs = [[{data: 'path', header:true}, {data: 'result', header: true}]]
             const check = async (path) => {
               const result = await fs.existsSync(homedir + "/.gitconfig")
-              outputs.push([homedir+path, result?"✅":"❌"])
+              outputs.push([path, result?"✅":"❌"])
             }
             await check("/.gitconfig")
             await core.summary
