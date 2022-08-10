@@ -25,7 +25,7 @@ jobs:
               const result = await fs.existsSync(homedir + "/.gitconfig")
               outputs.push(homedir+path, result?"✅":"❌")
             }
-            check("/.gitconfig")
+            await check("/.gitconfig")
             await core.summary
               .addTable(outputs)
               .write()
