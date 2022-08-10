@@ -18,6 +18,9 @@ vscode/User/workspaceStorage
 .config/karabiner/automatic_backups
 .config/xbuild/*.xml
 .config/.mono/keypairs
+.config/nvim/plugged/kotlin-vim/
+.config/nvim/plugged/nerdtree-git-plugin/
+.config/nvim/plugged/nerdtree/
 
 # Gradle folder
 .gradle/
