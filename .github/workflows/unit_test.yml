@@ -25,8 +25,8 @@ jobs:
             }
             
             await check(".gitconfig")
-            await check("fish/config.fish")
-            await check("starship.toml")
+            await check(".config/fish/config.fish")
+            await check(".config/starship.toml")
             await check(".config/fish")
             await check(".config/iterm")
             await check(".config/karabiner")
