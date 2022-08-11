@@ -21,7 +21,11 @@ jobs:
             const homedir = require('os').homedir() + "/";
             const verify = async (title, pathList) => {
               const outputs = [[{data: title, header:true, colspan: '2'}]]
-              pathList.forEach(path => outputs.push([path, (await fs.existsSync(homedir + path))?"✅":"❌"]))
+              pathList.forEach(path => {
+                const result = await fs.existsSync(homedir + path)
+                outputs.push([path, result?"✅":"❌"])
+                }
+              )
               await core.summary
                 .addTable(outputs)
                 .write()
