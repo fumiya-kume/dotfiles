@@ -18,28 +18,38 @@ jobs:
         with:
           script: |
             const fs = require('fs')
-            const homedir = require('os').homedir() + "/";
-            const outputs = [[{data: 'path', header:true, colspan: '2'}]]
-            const check = async (path) => {
-              outputs.push([path, (await fs.existsSync(homedir + path))?"✅":"❌"])
+            const verify = async (title, pathList) => {
+              const homedir = require('os').homedir() + "/";
+              const outputs = [[{data: title, header:true, colspan: '2'}]]
+              pathList.forEach(path => outputs.push([path, (await fs.existsSync(homedir + path))?"✅":"❌"]))
+              await core.summary
+                .addTable(outputs)
+                .write()
             }
-            
-            await check(".gitconfig")
-            await check(".config/fish/config.fish")
-            await check(".config/starship.toml")
-            await check(".config/fish")
-            await check(".config/iterm")
-            await check(".config/karabiner")
-            await check(".Brewfile")
-            await check(".gitconfig.remote")
-            await check(".gitmodules")
-            await check(".tigrc")
-            await check(".gnupg")
-            await check(".config")
-            
-            await core.summary
-              .addTable(outputs)
-              .write()
+
+            await verify(
+              "user folder config files",
+               [
+                ".gitconfig",
+                ".gitconfig.remote",
+                ".gitmodules",
+                ".tigrc",
+                ".gnupg",
+                ".config",
+                ".Brewfile",
+               ]
+            )
+
+            await verify(
+              ".config folder config files",
+               [
+                ".config/fish/config.fish",
+                ".config/starship.toml",
+                ".config/fish",
+                ".config/iterm",
+                ".config/karabiner"
+               ]
+            )
   approve:
     runs-on: macos-latest
     needs: "install"
