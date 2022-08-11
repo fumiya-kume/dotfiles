@@ -58,6 +58,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2      
       - name: approve
-        run: gh pr review ${{ github.event.number }} --approve --body "LGTM 👍 ¥n ${{GITHUB_STEP_SUMMARY}}"
+        run: gh pr review ${{ github.event.number }} --approve --body "LGTM 👍 ¥n $GITHUB_STEP_SUMMARY"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
