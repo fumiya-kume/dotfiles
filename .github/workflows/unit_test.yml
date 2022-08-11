@@ -21,23 +21,21 @@ jobs:
             const homedir = require('os').homedir() + "/";
             const outputs = [[{data: 'path', header:true}, {data: 'result', header: true}]]
             const check = async (path) => {
-              const result = await fs.existsSync(homedir + path)
-              outputs.push([path, result?"✅":"❌"])
+              outputs.push([path, (await fs.existsSync(homedir + path))?"✅":"❌"])
             }
             
             await check(".gitconfig")
             await check("fish/config.fish")
             await check("starship.toml")
             await check(".config/fish")
-            # is_exist_dir ~/.config/iterm
-            # is_exist_dir ~/.config/karabiner
-
-            # is_exist_link ~/.Brewfile
-            # is_exist_link ~/.gitconfig.remote
-            # is_exist_link ~/.gitmodules
-            # is_exist_link ~/.tigrc 
-            # is_exist_link ~/.gnupg 
-            # is_exist_link ~/.config 
+            await check(".config/iterm")
+            await check(".config/karabiner")
+            await check(".Brewfile")
+            await check(".gitconfig.remote")
+            await check(".gitmodules")
+            await check(".tigrc")
+            await check(".gnupg")
+            await check(".config")
             
             await core.summary
               .addTable(outputs)
