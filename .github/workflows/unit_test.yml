@@ -19,7 +19,7 @@ jobs:
           script: |
             const fs = require('fs')
             const homedir = require('os').homedir() + "/";
-            const outputs = [[{data: 'path', header:true}, {data: '', header: true}]]
+            const outputs = [[{data: 'path', header:true, colspan: '2'}]]
             const check = async (path) => {
               outputs.push([path, (await fs.existsSync(homedir + path))?"✅":"❌"])
             }
