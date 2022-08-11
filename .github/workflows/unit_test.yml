@@ -24,7 +24,7 @@ jobs:
               Promise.all(pathList.map(async path => {
                 const result = await fs.existsSync(homedir + path)
                 outputs.push([path, result?"✅":"❌"])
-              })
+              }))
               await core.summary
                 .addTable(outputs)
                 .write()
