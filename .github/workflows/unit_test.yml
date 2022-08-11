@@ -19,16 +19,38 @@ jobs:
           script: |
             const fs = require('fs')
             const homedir = require('os').homedir() + "/";
-            console.log()
-            const outputs = [[{data: 'path', header:true}, {data: 'result', header: true}]]
-            const check = async (path) => {
-              const result = await fs.existsSync(homedir + path)
-              outputs.push([path, result?"✅":"❌"])
+            const verify = async (title, pathList) => {
+              const outputs = [[{data: title, header:true, colspan: '2'}]]
+              await Promise.all(pathList.map(async path => {
+                const result = await fs.existsSync(homedir + path)
+                outputs.push([path, result?"✅":"❌"])
+              }))
+              await core.summary.addTable(outputs).write()
             }
-            await check(".gitconfig")
-            await core.summary
-              .addTable(outputs)
-              .write()
+
+            await verify(
+              "user folder config files",
+               [
+                ".gitconfig",
+                ".gitconfig.remote",
+                ".gitmodules",
+                ".tigrc",
+                ".gnupg",
+                ".config",
+                ".Brewfile",
+               ]
+            )
+
+            await verify(
+              ".config folder config files",
+               [
+                ".config/fish/config.fish",
+                ".config/starship.toml",
+                ".config/fish",
+                ".config/iterm",
+                ".config/karabiner"
+               ]
+            )
   approve:
     runs-on: macos-latest
     needs: "install"
@@ -36,6 +58,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2      
       - name: approve
-        run: gh pr review ${{ github.event.number }} --approve --body "LGTM 🙆‍♂️"
+        run: gh pr review ${{ github.event.number }} --approve --body "LGTM 👍"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
