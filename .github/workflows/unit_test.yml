@@ -25,9 +25,7 @@ jobs:
                 const result = await fs.existsSync(homedir + path)
                 outputs.push([path, result?"✅":"❌"])
               }))
-              await core.summary
-                .addTable(outputs)
-                .write()
+              await core.summary.addTable(outputs).write()
             }
 
             await verify(
