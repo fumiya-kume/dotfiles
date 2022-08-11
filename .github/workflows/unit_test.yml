@@ -18,8 +18,8 @@ jobs:
         with:
           script: |
             const fs = require('fs')
+            const homedir = require('os').homedir() + "/";
             const verify = async (title, pathList) => {
-              const homedir = require('os').homedir() + "/";
               const outputs = [[{data: title, header:true, colspan: '2'}]]
               pathList.forEach(path => outputs.push([path, (await fs.existsSync(homedir + path))?"✅":"❌"]))
               await core.summary
