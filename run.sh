@@ -27,8 +27,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 echo "✅ Install Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
-brew tap homebrew/bundle > /dev/null
-brew bundle install --global -q
+brew tap homebrew/bundle > /dev/null && brew bundle install --global -q
 
 echo "✅ Set fish"
 if [[ `uname -m` == 'arm64' ]]; then
@@ -45,12 +44,8 @@ echo "✅ Set Mac defaults"
 echo "✅ Setup gn"
 mkdir ~/tmp
 git clone https://gn.googlesource.com/gn ~/tmp/gn -q
-python ~/tmp/gn/build/gen.py
-ninja -C ~/tmp/gn/out > /dev/null
-
-mkdir -p ~/.bin
-cp ~/tmp/gn/out/gn ~/.bin
-rm -rf ~/tmp
+python ~/tmp/gn/build/gen.py && ninja -C ~/tmp/gn/out > /dev/null
+mkdir -p ~/.bin && cp ~/tmp/gn/out/gn ~/.bin && rm -rf ~/tmp
 
 echo "✅ Setup SSH for Github"
 if [ -f ~/.ssh/github ]; then
