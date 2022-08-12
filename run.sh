@@ -53,7 +53,7 @@ cp ~/tmp/gn/out/gn ~/.bin
 rm -rf ~/tmp
 
 echo "✅ Setup SSH for Github"
-if [ -f "$1" ]; then
+if [ -f ~/.ssh/github ]; then
   echo "  🚀 Generate SSH key for Github skipped"
 else 
   ssh-keygen -t ed25519 -f ~/.ssh/github -N '' -C "fumiya.kume@hotmail.com" -q > /dev/null
