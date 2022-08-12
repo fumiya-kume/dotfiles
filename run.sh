@@ -24,7 +24,14 @@ echo "✅ Set Mac defaults"
 . ./jobs/setup_mac_defaults.sh
 
 echo "✅ Setup gn"
-. ./jobs/setup_gn.sh
+mkdir ~/tmp
+git clone https://gn.googlesource.com/gn ~/tmp/gn -q
+python ~/tmp/gn/build/gen.py
+ninja -C ~/tmp/gn/out > /dev/null
+
+mkdir -p ~/.bin
+cp ~/tmp/gn/out/gn ~/.bin
+rm -rf ~/tmp
 
 echo "✅ Setup SSH for Github"
 if [ -f "$1" ]; then
