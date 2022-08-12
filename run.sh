@@ -36,6 +36,3 @@ fi
 
 echo "✅ Setup GPG for Github"
 . ./jobs/setup_gpg.sh
-
-echo "✅ Test configuration"
-. ./jobs/test.sh
