@@ -2,6 +2,7 @@
 .DS_Store
 Brewfile.lock.json
 ~/.gitconfig
+*.hprof
 
 # ignore config
 
