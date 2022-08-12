@@ -7,7 +7,9 @@ echo "✅ Copy files"
 sh ./jobs/setup_config_files_copy.sh
 
 echo "✅ Install Homebrew"
-. ./jobs/setup_homebrew.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+brew tap homebrew/bundle > /dev/null
+brew bundle install --global -q
 
 echo "✅ Set fish"
 if [[ `uname -m` == 'arm64' ]]; then
