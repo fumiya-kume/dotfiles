@@ -6,7 +6,6 @@ font:
     family: 'JetBrainsMono Nerd Font Mono'
     style: Bold
   size: 22.0
-  use_thin_strokes: true
 window:
   dimensions:
     columns: 0
