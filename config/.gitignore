@@ -23,6 +23,7 @@ vscode/User/workspaceStorage
 .config/nvim/plugged/nerdtree-git-plugin/
 .config/nvim/plugged/nerdtree/
 config/.gitignore
+.config/configstore/
 
 # Gradle folder
 .gradle/
