@@ -9,7 +9,7 @@ jobs:
   install:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup
         run: sh ./run.sh
       - name: Setup2
@@ -56,7 +56,7 @@ jobs:
     needs: "install"
     if: ${{ github.event_name == 'pull_request' }}
     steps:
-      - uses: actions/checkout@v2      
+      - uses: actions/checkout@v4      
       - name: approve
         run: gh pr review ${{ github.event.number }} --approve --body "LGTM 👍"
         env:
