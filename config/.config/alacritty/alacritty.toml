@@ -1,0 +1,49 @@
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "0x696969"
+blue = "0x007FFF"
+cyan = "0x00CCCC"
+green = "0x03C03C"
+magenta = "0xFF1493"
+red = "0xFF2400"
+white = "0xFFFAFA"
+yellow = "0xFDFF00"
+
+[colors.normal]
+black = "0x10100E"
+blue = "0x0087BD"
+cyan = "0x20B2AA"
+green = "0x009F6B"
+magenta = "0x9A4EAE"
+red = "0xC40233"
+white = "0xC6C6C4"
+yellow = "0xFFD700"
+
+[colors.primary]
+background = "0x10100E"
+foreground = "0xC6C6C4"
+
+[cursor]
+style = "Block"
+unfocues_hollow = true
+
+[font]
+size = 22.0
+
+[font.normal]
+family = "UDEV Gothic NFLG"
+style = "Regular"
+
+[window]
+decorations = "buttonless"
+dynamic_title = true
+opacity = 0.8
+startup_mode = "Maximized"
+
+[window.dimensions]
+columns = 0
+lines = 0
