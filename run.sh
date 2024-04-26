@@ -27,6 +27,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 echo "✅ Install Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/kuu/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew tap homebrew/bundle > /dev/null && brew bundle install --global -q
 
 echo "✅ Set fish"
