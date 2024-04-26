@@ -1,4 +1,4 @@
-/bin/bash
+/bin/zsh
 
 echo "✅ Install Xcode"
 sudo xcode-select --install > /dev/null
