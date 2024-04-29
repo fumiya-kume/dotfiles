@@ -35,7 +35,7 @@ jobs:
                 ".tigrc",
                 ".Brewfile",
                 "gpg-key.conf",
-                "~/.hammerspoon/init.lua"
+                ".hammerspoon/init.lua"
                ]
             )
 
