@@ -44,7 +44,8 @@ jobs:
                [
                 ".config/fish/config.fish",
                 ".config/starship.toml",
-                ".config/fish",
+                ".config/fish/fish_variables",
+                ".config/fish/functions/g.fish",
                 ".config/iterm",
                 ".config/karabiner"
                ]
