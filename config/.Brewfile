@@ -1,6 +1,5 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
-brew "bazel"
 brew "cloc"
 cask "hammerspoon"
 cask "inkdrop"
