@@ -1,5 +1,5 @@
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
+tap "homebrew/cask-fonts/font-jetbrains-mono-nerd-font"
 brew "cloc"
 cask "hammerspoon"
 cask "inkdrop"
