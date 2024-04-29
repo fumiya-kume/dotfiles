@@ -41,7 +41,7 @@ else
 fi
 
 echo "✅ Set Mac defaults"
-. ./mac_defaults.sh
+. ./command/mac_defaults.sh
 
 echo "✅ Setup gn"
 mkdir ~/tmp
