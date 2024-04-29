@@ -61,6 +61,6 @@ jobs:
             await verify(
               "gnupg folder",
               [
-                "~/.gnupg/gpg-agent.conf",
+                ".gnupg/gpg-agent.conf",
               ]
             )
