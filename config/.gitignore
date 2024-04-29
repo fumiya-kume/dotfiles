@@ -1,4 +1,4 @@
-# ignore files
+ # ignore files
 .DS_Store
 Brewfile.lock.json
 ~/.gitconfig
@@ -21,7 +21,8 @@ vscode/User/workspaceStorage
 .config/.mono/keypairs
 config/.gitignore
 .config/configstore/
-config/github-copilot
+github-copilot/ai
+github-copilot/iu
 
 # Gradle folder
 .gradle/
