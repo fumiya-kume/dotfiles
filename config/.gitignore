@@ -21,8 +21,8 @@ vscode/User/workspaceStorage
 .config/.mono/keypairs
 config/.gitignore
 .config/configstore/
-github-copilot/ai
-github-copilot/iu
+**/github-copilot/ai/**
+**/github-copilot/iu/**
 
 # Gradle folder
 .gradle/
