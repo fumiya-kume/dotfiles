@@ -15,6 +15,7 @@ ln -fs "$(pwd)/config/.Brewfile" ~/.Brewfile
 ln -fs "$(pwd)/config/.hammerspoon" ~/.hammerspoon
 ln -fs "$(pwd)/config/.tmux/" ~/.tmux
 ln -fs "$(pwd)/config/.ssh/config" ~/.ssh/config
+ln -fs "$(pwd)/config/gpg-key.conf" ~
 
 mkdir -p "~/Library/Application\ Support/Code/"
 ln -nfs "$(pwd)/config/vscode/User/" "~/Library/Application\ Support/Code/"
@@ -32,13 +33,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew tap homebrew/bundle > /dev/null && brew bundle install --global -q
 
 echo "✅ Set fish"
-if [[ `uname -m` == 'arm64' ]]; then
-   echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells 2>&1 > /dev/null
-   sudo chsh -s /opt/homebrew/bin/fish > /dev/null
-else
-   echo /usr/local/bin/fish | sudo tee -a /etc/shells 2>&1 > /dev/null
-   sudo chsh -s /opt/homebrew/bin/fish > /dev/null
-fi
+echo $(which fish) | sudo tee -a /etc/shells 2>&1 > /dev/null
+sudo chsh -s /opt/homebrew/bin/fish > /dev/null
 
 echo "✅ Set Mac defaults"
 . ./command/mac_defaults.sh
