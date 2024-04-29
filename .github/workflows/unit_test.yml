@@ -50,13 +50,3 @@ jobs:
                 ".config/karabiner"
                ]
             )
-  approve:
-    runs-on: macos-latest
-    needs: "install"
-    if: ${{ github.event_name == 'pull_request' }}
-    steps:
-      - uses: actions/checkout@v2      
-      - name: approve
-        run: gh pr review ${{ github.event.number }} --approve --body "LGTM 👍"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
