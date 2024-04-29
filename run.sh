@@ -4,17 +4,18 @@ echo "✅ Install Xcode"
 sudo xcode-select --install > /dev/null
 
 echo "✅ Copy files"
-rm -rf ~/.config
-ln -fs "$(pwd)/config/.config/" ~
-ln -fs "$(pwd)/config/.gnupg/" ~
-ln -fs "$(pwd)/config/.tigrc" ~/.tigrc
-ln -fs "$(pwd)/config/.gitconfig.remote" ~/.gitconfig.remote
-ln -fs "$(pwd)/config/.gitmodules" ~/.gitmodules
-ln -fs "$(pwd)/config/.gitignore" ~/.gitignore
-ln -fs "$(pwd)/config/.Brewfile" ~/.Brewfile
-ln -fs "$(pwd)/config/.hammerspoon" ~/.hammerspoon
-ln -fs "$(pwd)/config/.tmux/" ~/.tmux
-ln -fs "$(pwd)/config/.ssh/config" ~/.ssh/config
+
+DOTFILE_PATH="~/ghq/dotfiles"
+ln -fs "$DOTFILE_PATH/config/.config/" ~
+ln -fs "$DOTFILE_PATH/config/.gnupg/" ~
+ln -fs "$DOTFILE_PATH/config/.tigrc" ~/.tigrc
+ln -fs "$DOTFILE_PATH/config/.gitconfig.remote" ~/.gitconfig.remote
+ln -fs "$DOTFILE_PATH/config/.gitmodules" ~/.gitmodules
+ln -fs "$DOTFILE_PATH/config/.gitignore" ~/.gitignore
+ln -fs "$DOTFILE_PATH/config/.Brewfile" ~/.Brewfile
+ln -fs "$DOTFILE_PATH/config/.hammerspoon" ~/.hammerspoon
+ln -fs "$DOTFILE_PATH/config/.tmux/" ~/.tmux
+ln -fs "$DOTFILE_PATH/config/.ssh/config" ~/.ssh/config
 
 mkdir -p "~/Library/Application\ Support/Code/"
 ln -nfs "$(pwd)/config/vscode/User/" "~/Library/Application\ Support/Code/"
