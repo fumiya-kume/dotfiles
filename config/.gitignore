@@ -25,3 +25,5 @@ config/.config/github-copilot/
 
 # Gradle folder
 .gradle/
+
+node_modules
