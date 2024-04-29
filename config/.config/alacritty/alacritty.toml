@@ -27,22 +27,20 @@ yellow = "0xFFD700"
 background = "0x10100E"
 foreground = "0xC6C6C4"
 
-[cursor]
-style = "Block"
-unfocues_hollow = true
-
 [font]
 size = 22.0
 
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold"
+
 [font.normal]
-family = "UDEV Gothic NFLG"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Regular"
 
 [window]
-decorations = "buttonless"
-dynamic_title = true
-opacity = 0.8
-startup_mode = "Maximized"
+opacity = 1
+startup_mode = "SimpleFullscreen"
 
 [window.dimensions]
 columns = 0
