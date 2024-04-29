@@ -15,6 +15,7 @@ ln -fs "$(pwd)/config/.Brewfile" ~/.Brewfile
 ln -fs "$(pwd)/config/.hammerspoon" ~/.hammerspoon
 ln -fs "$(pwd)/config/.tmux/" ~/.tmux
 ln -fs "$(pwd)/config/.ssh/config" ~/.ssh/config
+ln -fs "$(pwd)/config/gpg-key.conf" ~
 
 mkdir -p "~/Library/Application\ Support/Code/"
 ln -nfs "$(pwd)/config/vscode/User/" "~/Library/Application\ Support/Code/"
