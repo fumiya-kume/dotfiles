@@ -1,5 +1,7 @@
 #!/usr/bin/zsh
 
+cd ~/ghq/dotfiles
+
 echo "✅ Install Xcode"
 sudo xcode-select --install > /dev/null
 
