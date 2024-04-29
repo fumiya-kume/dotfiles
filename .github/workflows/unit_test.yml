@@ -29,10 +29,10 @@ jobs:
             await verify(
               "user folder config files",
                [
-                ".gitconfig",
-                ".gitconfig.remote",
-                ".gitmodules",
-                ".tigrc",
+                "~/.gitconfig",
+                "~/.gitconfig.remote",
+                "~/.gitmodules",
+                "~/.tigrc",
                 ".Brewfile",
                 "gpg-key.conf",
                ]
