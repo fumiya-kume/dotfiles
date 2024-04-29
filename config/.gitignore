@@ -24,7 +24,7 @@ vscode/User/workspaceStorage
 .config/nvim/plugged/nerdtree/
 config/.gitignore
 .config/configstore/
-~/.config/github-copilot/
+config/.config/github-copilot/
 
 # Gradle folder
 .gradle/
