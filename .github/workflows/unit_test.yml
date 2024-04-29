@@ -36,6 +36,7 @@ jobs:
                 ".gnupg",
                 ".config",
                 ".Brewfile",
+                "gpg-key.conf",
                ]
             )
 
