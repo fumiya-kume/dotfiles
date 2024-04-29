@@ -13,7 +13,6 @@ ln -fs "$(pwd)/config/.gitmodules" ~/.gitmodules
 ln -fs "$(pwd)/config/.gitignore" ~/.gitignore
 ln -fs "$(pwd)/config/.Brewfile" ~/.Brewfile
 ln -fs "$(pwd)/config/.hammerspoon" ~/.hammerspoon
-ln -fs "$(pwd)/config/.tmux/" ~/.tmux
 ln -fs "$(pwd)/config/.ssh/config" ~/.ssh/config
 ln -fs "$(pwd)/config/gpg-key.conf" ~
 
