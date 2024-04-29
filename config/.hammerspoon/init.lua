@@ -4,8 +4,6 @@ hs.hotkey.bind({"alt"}, "space", function()
     alacritty:hide()
   else
     hs.application.launchOrFocus("/Applications/Alacritty.app")
-    -- local win = hs.window.focusedWindow()
-    -- local screen = win:screen()
     local screen = hs.screen.primeScreen()
     win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
   end
