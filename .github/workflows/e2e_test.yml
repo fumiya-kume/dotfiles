@@ -9,4 +9,4 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: itest
-        run: curl -fsSL dotfile.kuu.systems/bootstrap.sh | bash
+        run: curl -fsSL https://raw.githubusercontent.com/fumiya-kume/dotfiles/master/bootstrap.sh | bash
