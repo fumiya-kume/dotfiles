@@ -12,8 +12,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup
         run: sh ./run.sh
-      - name: Setup2
-        run: sh ./run.sh
       - uses: actions/github-script@v6
         with:
           script: |
