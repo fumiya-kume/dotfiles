@@ -49,3 +49,10 @@ jobs:
                 ".config/karabiner"
                ]
             )
+
+            await verify(
+              ".ssh folder",
+              [
+                ".ssh/config"
+              ]
+            )
