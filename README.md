@@ -3,7 +3,7 @@
 # How to use 
 
 ```
-curl -fsSL dotfile.kuu.systems/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/fumiya-kume/dotfiles/master/bootstrap.sh | bash
 ```
 
 
