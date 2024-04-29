@@ -38,12 +38,6 @@ sudo chsh -s /opt/homebrew/bin/fish > /dev/null
 echo "✅ Set Mac defaults"
 . ./command/mac_defaults.sh
 
-echo "✅ Setup gn"
-mkdir ~/tmp
-git clone https://gn.googlesource.com/gn ~/tmp/gn -q
-python ~/tmp/gn/build/gen.py && ninja -C ~/tmp/gn/out > /dev/null
-mkdir -p ~/.bin && cp ~/tmp/gn/out/gn ~/.bin && rm -rf ~/tmp
-
 echo "✅ Setup SSH for Github"
 if [ -f ~/.ssh/github ]; then
   echo "  🚀 Generate SSH key for Github skipped"
