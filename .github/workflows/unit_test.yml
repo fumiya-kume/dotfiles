@@ -34,7 +34,6 @@ jobs:
                 ".gitmodules",
                 ".tigrc",
                 ".Brewfile",
-                "gpg-key.conf",
                ]
             )
 
