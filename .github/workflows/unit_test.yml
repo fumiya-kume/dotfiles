@@ -33,8 +33,6 @@ jobs:
                 ".gitconfig.remote",
                 ".gitmodules",
                 ".tigrc",
-                ".gnupg",
-                ".config",
                 ".Brewfile",
                ]
             )
