@@ -35,6 +35,7 @@ jobs:
                 ".tigrc",
                 ".Brewfile",
                 "gpg-key.conf",
+                "~/.hammerspoon"
                ]
             )
 
