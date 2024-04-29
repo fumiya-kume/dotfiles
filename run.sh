@@ -6,17 +6,17 @@ sudo xcode-select --install > /dev/null
 echo "✅ Copy files"
 
 DOTFILE_PATH="~/ghq/dotfiles"
-ln -fs "(DOTFILE_PATH)/config/.config/" ~
-ln -fs "(DOTFILE_PATH)/config/.gnupg/" ~
-ln -fs "(DOTFILE_PATH)/config/.tigrc" ~/.tigrc
-ln -fs "(DOTFILE_PATH)/config/.gitconfig.remote" ~/.gitconfig.remote
-ln -fs "(DOTFILE_PATH)/config/.gitmodules" ~/.gitmodules
-ln -fs "(DOTFILE_PATH)/config/.gitignore" ~/.gitignore
-ln -fs "(DOTFILE_PATH)/config/.Brewfile" ~/.Brewfile
-ln -fs "(DOTFILE_PATH)/config/.hammerspoon" ~/.hammerspoon
-ln -fs "(DOTFILE_PATH)/config/.tmux/" ~/.tmux
-ln -fs "(DOTFILE_PATH)/config/.ssh/config" ~/.ssh/config
-ln -fs "(DOTFILE_PATH)/config/gpg-key.conf" ~
+sudo ln -fs "(DOTFILE_PATH)/config/.config/" ~
+sudo ln -fs "(DOTFILE_PATH)/config/.gnupg/" ~
+sudo ln -fs "(DOTFILE_PATH)/config/.tigrc" ~/.tigrc
+sudo ln -fs "(DOTFILE_PATH)/config/.gitconfig.remote" ~/.gitconfig.remote
+sudo ln -fs "(DOTFILE_PATH)/config/.gitmodules" ~/.gitmodules
+sudo ln -fs "(DOTFILE_PATH)/config/.gitignore" ~/.gitignore
+sudo ln -fs "(DOTFILE_PATH)/config/.Brewfile" ~/.Brewfile
+sudo ln -fs "(DOTFILE_PATH)/config/.hammerspoon" ~/.hammerspoon
+sudo ln -fs "(DOTFILE_PATH)/config/.tmux/" ~/.tmux
+sudo ln -fs "(DOTFILE_PATH)/config/.ssh/config" ~/.ssh/config
+sudo ln -fs "(DOTFILE_PATH)/config/gpg-key.conf" ~
 
 mkdir -p "~/Library/Application\ Support/Code/"
 ln -nfs "$(pwd)/config/vscode/User/" "~/Library/Application\ Support/Code/"
