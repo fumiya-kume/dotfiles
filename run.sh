@@ -30,8 +30,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew tap homebrew/bundle > /dev/null && brew bundle install --global -q
 
 echo "✅ Set fish"
-echo $(which fish) | sudo tee -a /etc/shells 2>&1 > /dev/null
-sudo chsh -s /opt/homebrew/bin/fish > /dev/null
+. ./command/set_fish.sh
 
 echo "✅ Set Mac defaults"
 . ./command/mac_defaults.sh
