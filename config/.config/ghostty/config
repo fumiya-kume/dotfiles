@@ -1,0 +1,2 @@
+keybind = global:alt+space=toggle_quick_terminal
+macos-non-native-fullscreen = true
