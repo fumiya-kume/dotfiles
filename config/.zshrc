@@ -26,17 +26,18 @@ alias gb='git switch -m "$(git branch -a --sort=-authordate | grep -v -e "->" -e
 #  fi
 #}
 
-alias cd='builtin cd $@ && ls;'
+# alias cd='builtin cd $@ && ls;'
 alias cl='clear'
 alias ts='tig status'
 alias gp='git pull --autostash'
 alias tssh='ssh $(tailscale status | awk "/^# / {next} /^[ \t]*$/ {next} /^\-/ {next} {print \$2}" | peco | tr "\n" "\0")'
 
-function h() {
-  local selected
-  selected=$(history -E 1| awk '!a[$0]++' | peco --initial-index=-1)
-  if [[ -n "$selected" ]]; then
-    eval "$selected"
-  fi
-}
+# function h() {
+h() { eval $(history -n -r | awk '!a[$0]++' | peco --initial-index=-1); }
+#  local selected
+#  selected=$(history -E 1| awk '!a[$0]++' | peco --initial-index=-1)
+#  if [[ -n "$selected" ]]; then
+#    eval "$selected"
+#  fi
+#}
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
