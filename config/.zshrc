@@ -17,12 +17,10 @@ g() {
 }
 
 alias gb='git switch -m $(git branch -a | grep -v -e "->" -e "*" | perl -pe "s/^\h+//g" | while read -r line; do echo ${line#remotes/origin/}; done | uniq | peco)'
-
-# alias cd='builtin cd $@ && ls;'
 alias cl='clear'
 alias ts='tig status'
 alias gp='git pull --autostash'
 alias tssh='ssh $(tailscale status | awk "/^# / {next} /^[ \t]*$/ {next} /^\-/ {next} {print \$2}" | peco | tr "\n" "\0")'
+alias h='eval $(history -n -r | awk "!a[\$0]++" | peco --initial-index=-1)'
 
-h() { eval $(history -n -r | awk '!a[$0]++' | peco --initial-index=-1); }
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
