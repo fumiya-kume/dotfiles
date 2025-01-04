@@ -1,5 +1,0 @@
-function cl
-   clear
-end
-
-
