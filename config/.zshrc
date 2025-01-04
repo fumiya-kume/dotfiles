@@ -9,13 +9,7 @@ setopt share_history
 SAVEHIST=10000
 HISTSIZE=10000
 
-g() {
-  local repo=$(ghq list | peco)
-  if [[ -n "$repo" ]]; then
-    cd $(ghq root)/$repo
-  fi
-}
-
+alias g='cd $(ghq list | peco | xargs -I {} echo $(ghq root)/{})'
 alias gb='git switch -m $(git branch -a | grep -v -e "->" -e "*" | perl -pe "s/^\h+//g" | while read -r line; do echo ${line#remotes/origin/}; done | uniq | peco)'
 alias cl='clear'
 alias ts='tig status'
