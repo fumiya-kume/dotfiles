@@ -1,5 +1,0 @@
-eamodio.gitlens
-quicktype.quicktype
-redhat.vscode-yaml
-skyapps.fish-vscode
-VisualStudioExptTeam.vscodeintellicode
