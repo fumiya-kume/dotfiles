@@ -16,7 +16,7 @@ g() {
   fi
 }
 
-alias gb='git switch -m "$(git branch -a --sort=-authordate | grep -v -e "->" -e "*" | perl -pe "s/^\h+//g" | perl -pe "s#^remotes/origin/###" | perl -nle "print if !\$c{$_}++" | peco)"'
+alias gb='git switch -m $(git branch -a | grep -v -e "->" -e "*" | perl -pe "s/^\h+//g" | while read -r line; do echo ${line#remotes/origin/}; done | uniq | peco)'
 
 # alias cd='builtin cd $@ && ls;'
 alias cl='clear'
