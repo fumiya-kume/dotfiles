@@ -44,6 +44,10 @@ ts() {
   tig status
 }
 
+tssh() {
+  ssh $(tailscale status | awk '/^# / {next} /^[ \t]*$/ {next} /^\-/ {next} {print $2}' | peco | tr "\n" "\0")
+}
+
 function h() {
   local selected
   selected=$(history -E 1| awk '!a[$0]++' | peco --initial-index=-1)
