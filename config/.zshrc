@@ -9,15 +9,6 @@ setopt share_history
 SAVEHIST=10000
 HISTSIZE=10000
 
-function cd(){
-    builtin cd $@ && ls;
-}
-
-# Clear the screen
-cl() {
-  clear
-}
-
 # Change directory to a repository selected from ghq list
 g() {
   local repo=$(ghq list | peco)
@@ -34,19 +25,11 @@ gb() {
   fi
 }
 
-# Pull from the current branch
-gp() {
-  git pull
-}
-
-# Show git status with tig
-ts() {
-  tig status
-}
-
-tssh() {
-  ssh $(tailscale status | awk '/^# / {next} /^[ \t]*$/ {next} /^\-/ {next} {print $2}' | peco | tr "\n" "\0")
-}
+alias cd='builtin cd $@ && ls;'
+alias cl='clear'
+alias ts='tig status'
+alias gp='git pull --autostash'
+alias tssh='ssh $(tailscale status | awk "/^# / {next} /^[ \t]*$/ {next} /^\-/ {next} {print \$2}" | peco | tr "\n" "\0")'
 
 function h() {
   local selected
