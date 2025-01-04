@@ -18,12 +18,13 @@ g() {
 }
 
 # Switch to a branch selected from a list of branches
-gb() {
-  local branch=$(git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco)
-  if [[ -n "$branch" ]]; then
-    git switch -m "$branch"
-  fi
-}
+alias gb='git switch -m "$(git branch -a --sort=-authordate | grep -v -e "->" -e "*" | perl -pe "s/^\h+//g" | perl -pe "s#^remotes/origin/###" | perl -nle "print if !\$c{$_}++" | peco)"'
+# gb() {
+#  local branch=$(git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco)
+#  if [[ -n "$branch" ]]; then
+#    git switch -m "$branch"
+#  fi
+#}
 
 alias cd='builtin cd $@ && ls;'
 alias cl='clear'
