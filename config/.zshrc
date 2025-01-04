@@ -9,7 +9,6 @@ setopt share_history
 SAVEHIST=10000
 HISTSIZE=10000
 
-# Change directory to a repository selected from ghq list
 g() {
   local repo=$(ghq list | peco)
   if [[ -n "$repo" ]]; then
@@ -17,14 +16,7 @@ g() {
   fi
 }
 
-# Switch to a branch selected from a list of branches
 alias gb='git switch -m "$(git branch -a --sort=-authordate | grep -v -e "->" -e "*" | perl -pe "s/^\h+//g" | perl -pe "s#^remotes/origin/###" | perl -nle "print if !\$c{$_}++" | peco)"'
-# gb() {
-#  local branch=$(git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco)
-#  if [[ -n "$branch" ]]; then
-#    git switch -m "$branch"
-#  fi
-#}
 
 # alias cd='builtin cd $@ && ls;'
 alias cl='clear'
@@ -32,12 +24,5 @@ alias ts='tig status'
 alias gp='git pull --autostash'
 alias tssh='ssh $(tailscale status | awk "/^# / {next} /^[ \t]*$/ {next} /^\-/ {next} {print \$2}" | peco | tr "\n" "\0")'
 
-# function h() {
 h() { eval $(history -n -r | awk '!a[$0]++' | peco --initial-index=-1); }
-#  local selected
-#  selected=$(history -E 1| awk '!a[$0]++' | peco --initial-index=-1)
-#  if [[ -n "$selected" ]]; then
-#    eval "$selected"
-#  fi
-#}
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
