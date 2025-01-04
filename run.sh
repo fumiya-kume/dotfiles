@@ -26,9 +26,6 @@ echo "✅ Install Homebrew"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew tap homebrew/bundle > /dev/null && brew bundle install --global -q
 
-echo "✅ Set fish"
-. ./command/set_fish.sh
-
 echo "✅ Set Mac defaults"
 . ./command/mac_defaults.sh
 
