@@ -13,12 +13,9 @@ ln -fs "$(pwd)/config/.tigrc" ~/.tigrc
 ln -fs "$(pwd)/config/.gitconfig.remote" ~/.gitconfig.remote
 ln -fs "$(pwd)/config/.gitmodules" ~/.gitmodules
 ln -fs "$(pwd)/config/.Brewfile" ~/.Brewfile
-ln -fs "$(pwd)/config/.hammerspoon" ~/.hammerspoon
+ln -fs "$(pwd)/config/.zshrc" ~/.zshrc
 ln -fs "$(pwd)/config/.ssh/config" ~/.ssh/config
 ln -fs "$(pwd)/config/gpg-key.conf" ~
-
-mkdir -p "~/Library/Application\ Support/Code/"
-ln -nfs "$(pwd)/config/vscode/User/" "~/Library/Application\ Support/Code/"
 
 git config --global include.path "~/.gitconfig.remote"
 git config --global core.excludesfile "~/.gitignore"
