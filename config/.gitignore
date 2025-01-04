@@ -27,3 +27,8 @@ config/.gitignore
 .gradle/
 
 node_modules
+yarn
+
+nvim
+flutter
+zed
