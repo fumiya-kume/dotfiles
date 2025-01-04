@@ -7,15 +7,20 @@ sudo xcode-select --install > /dev/null
 
 echo "✅ Copy files"
 rm -rf ~/.config
-ln -fs "$(pwd)/config/.config/" ~
-ln -fs "$(pwd)/config/.gnupg/" ~
-ln -fs "$(pwd)/config/.tigrc" ~/.tigrc
-ln -fs "$(pwd)/config/.gitconfig.remote" ~/.gitconfig.remote
-ln -fs "$(pwd)/config/.gitmodules" ~/.gitmodules
-ln -fs "$(pwd)/config/.Brewfile" ~/.Brewfile
-ln -fs "$(pwd)/config/.zshrc" ~/.zshrc
-ln -fs "$(pwd)/config/.ssh/config" ~/.ssh/config
-ln -fs "$(pwd)/config/gpg-key.conf" ~
+config_dir="${PWD}/config"
+
+for file in \
+  .config/ \
+  .gnupg/ \
+  .tigrc \
+  .gitconfig.remote \
+  .gitmodules \
+  .Brewfile \
+  .zshrc \
+  .ssh/config \
+  gpg-key.conf; do
+  ln -fs "$config_dir/$file" ~
+done
 
 git config --global include.path "~/.gitconfig.remote"
 git config --global core.excludesfile "~/.gitignore"
