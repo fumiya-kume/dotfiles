@@ -1,3 +1,2 @@
 keybind = global:alt+space=toggle_quick_terminal
 maximize = true
-keybind = shift+enter=text:\n
