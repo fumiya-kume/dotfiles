@@ -1,0 +1,40 @@
+version: "1.0"
+claude:
+    command: claude
+    timeout: 5m0s
+    max_instances: 3
+    auto_start: true
+    args:
+        - --no-confirmation
+github:
+    default_labels:
+        - ccagents-generated
+    draft_pr: true
+    auto_merge: false
+    reviewers: []
+    assignees: []
+ui:
+    theme: dark
+    show_timestamps: true
+    verbose_output: false
+    viewport_buffer: 10000
+    refresh_interval: 100
+workflow:
+    auto_review: true
+    max_review_iterations: 3
+    commit_style: conventional
+    parallel_tasks: true
+    skip_ci: false
+development:
+    worktree_base: /Users/kuu/.ccagents/worktrees
+    keep_worktrees: false
+    max_worktrees: 10
+    cleanup_age: 7d
+logging:
+    level: info
+    file: /Users/kuu/.ccagents/logs/ccagents.log
+    format: text
+    rotation: true
+    max_size: 100
+    max_age: 30
+    max_backups: 5
