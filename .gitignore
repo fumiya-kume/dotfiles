@@ -1,0 +1,6 @@
+config/.config/goose/logs
+config/.config/goose/mcp-hermit
+config/.config/firebase
+config/.config/uv
+config/.ssh/config
+.DS_Store
