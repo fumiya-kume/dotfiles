@@ -1,0 +1,10 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+# Added by Toolbox App
+export PATH="$PATH:/Users/kuu/Library/Application Support/JetBrains/Toolbox/scripts"export PATH="/Library/TeX/texbin:$PATH"
+export PATH="/Library/TeX/texbin:$PATH"
+
+# Added by AI: Set JAVA_HOME automatically
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH="$JAVA_HOME/bin:$PATH"
