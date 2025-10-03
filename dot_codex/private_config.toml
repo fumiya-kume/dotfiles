@@ -1,0 +1,20 @@
+model = "gpt-5"
+model_reasoning_effort = "high"
+
+[mcp_servers]
+
+[projects."/Users/kuu"]
+trust_level = "trusted"
+
+[projects."/Users/kuu/ghq/github.com/AmiOtsukaSE/memolu"]
+trust_level = "trusted"
+
+[projects."/Users/kuu/ghq/github.com/fumiya-kume/ehoumaki"]
+trust_level = "trusted"
+
+[projects."/Users/kuu/.local/share/chezmoi"]
+trust_level = "trusted"
+
+[tools]
+view_image = true
+web_search = true
