@@ -22,6 +22,7 @@ brew "deno"
 brew "docker"
 # Isolated development environments using Docker
 brew "docker-compose"
+cask "docker-desktop"
 # Program that can automate interactive applications
 brew "expect"
 # Play, record, convert, and stream audio and video
