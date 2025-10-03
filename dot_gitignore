@@ -1,0 +1,4 @@
+# Global Git ignore (managed by chezmoi)
+# macOS Finder metadata files
+.DS_Store
+.ds_store
