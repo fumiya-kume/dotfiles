@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-# Runs `brew bundle` after chezmoi applies files, but only when the
-# Brewfile content changes (thanks to the embedded hash below).
-#
-# Dependency fingerprint so `run_onchange` triggers when Brewfile updates.
-# If you manage a global Brewfile (dot_Brewfile), this hash will reflect changes.
-# brewfile_hash={{ include "dot_Brewfile" | sha256 }}
-
 # Ensure brew available in this script session
 if ! command -v brew >/dev/null 2>&1; then
   if [[ -x "/opt/homebrew/bin/brew" ]]; then
