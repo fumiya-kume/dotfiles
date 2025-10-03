@@ -1,7 +1,5 @@
 tap "supabase/tap"
 tap "xcodesorg/made"
-# Run your GitHub Actions locally
-brew "act"
 # Platform built on V8 to build network applications
 brew "node"
 # CLI tool for analyzing Claude Code usage from local JSONL files
