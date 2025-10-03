@@ -1,5 +1,3 @@
-tap "adoptopenjdk/openjdk"
-tap "fumiya-kume/mdefaults"
 tap "supabase/tap"
 tap "xcodesorg/made"
 # Run your GitHub Actions locally
@@ -18,8 +16,6 @@ brew "cloc"
 brew "cocoapods"
 # Linux virtual machines
 brew "lima"
-# Container runtimes on MacOS (and Linux) with minimal setup
-brew "colima"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Secure runtime for JavaScript and TypeScript
@@ -86,8 +82,6 @@ brew "pandoc"
 brew "peco"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
-# CLI for the Pkl programming language
-brew "pkl"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Interpreted, interactive, object-oriented programming language
@@ -100,8 +94,6 @@ brew "ripgrep"
 brew "smartmontools"
 # Zsh prompt for Astronauts
 brew "spaceship"
-# Cross-shell prompt for astronauts
-brew "starship"
 # Formatting technology for Swift source code
 brew "swift-format"
 # Formatting tool for reformatting Swift code
@@ -130,8 +122,6 @@ brew "yarn"
 brew "zsh-autosuggestions"
 # Install and switch between multiple versions of Xcode
 brew "xcodesorg/made/xcodes"
-# GPU-accelerated terminal emulator
-cask "alacritty"
 # Android SDK component
 cask "android-platform-tools"
 # Compact TeX distribution as alternative to the full TeX Live / MacTeX
@@ -149,22 +139,14 @@ cask "fork"
 cask "gcloud-cli"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
-# Client for the Google Drive storage service
-cask "google-drive"
-# Desktop automation application
-cask "hammerspoon"
 # Markdown editor
 cask "inkdrop"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
 # Keyboard customiser
 cask "karabiner-elements"
 # App to write, plan, collaborate, and get organised
 cask "notion"
-# Collaboration platform for API development
-cask "postman"
 # Automatic time and productivity tracking app
 cask "timing"
 # Create, maintain, and interact with Xcode projects at scale
