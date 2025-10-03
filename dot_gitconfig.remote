@@ -15,6 +15,20 @@
 	ui = auto
 [commit]
 	gpgsign = true
-[ghq]
 [gpg]
-	program = gpg
+	
+[include]
+        path = ~/.gitconfig.remote
+[core]
+        excludesfile = ~/.gitignore
+[gpg]
+        format = ssh
+        program = gpg
+[user]
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEie6vfBM91NAcbTYgpZSmPl5M0RR3XNpeRC5KYqnImY
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
