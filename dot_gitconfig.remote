@@ -16,9 +16,6 @@
 [commit]
 	gpgsign = true
 [gpg]
-	
-[include]
-        path = ~/.gitconfig.remote
 [core]
         excludesfile = ~/.gitignore
 [gpg]
