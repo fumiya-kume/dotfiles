@@ -6,60 +6,63 @@ on:
   push:
     branches: [master]
 jobs:
-  install:
+  setup_and_verify:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup
-        run: sh ./run.sh
-      - uses: actions/github-script@v7
+
+      - name: Install chezmoi and apply from this repo
+        run: |
+          sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --source="${GITHUB_WORKSPACE}"
+
+      - name: Verify setup completed
+        uses: actions/github-script@v7
         with:
           script: |
-            const fs = require('fs')
-            const homedir = require('os').homedir() + "/";
-            const verify = async (title, pathList) => {
-              const outputs = [[{data: title, header:true, colspan: '2'}]]
-              await Promise.all(pathList.map(async path => {
-                const result = await fs.existsSync(homedir + path)
-                outputs.push([path, result?"✅":"❌"])
-              }))
-              await core.summary.addTable(outputs).write()
+            const fs = require('fs');
+            const path = require('path');
+            const homedir = require('os').homedir() + '/';
+            const repoRoot = process.env.GITHUB_WORKSPACE || process.cwd();
+
+            const isDotSource = (rel) => rel.split(path.sep)[0].startsWith('dot_');
+
+            function walk(dir, acc = []) {
+              for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+                if (entry.name === '.git' || entry.name === '.github') continue;
+                const full = path.join(dir, entry.name);
+                const rel = path.relative(repoRoot, full);
+                if (!rel || rel.startsWith('..')) continue;
+                if (entry.isDirectory()) {
+                  acc.push(rel);
+                  walk(full, acc);
+                } else {
+                  acc.push(rel);
+                }
+              }
+              return acc;
             }
 
-            await verify(
-              "user folder config files",
-               [
-                ".gitconfig",
-                ".gitconfig.remote",
-                ".gitmodules",
-                ".tigrc",
-                ".Brewfile",
-                "gpg-key.conf",
-                ".hammerspoon/init.lua"
-               ]
-            )
+            const toHomePath = (rel) => {
+              const parts = rel.split(path.sep).map((seg, idx) => {
+                if (idx === 0 && seg.startsWith('dot_')) return '.' + seg.slice(4);
+                return seg;
+              });
+              return parts.join('/');
+            };
 
-            await verify(
-              ".config folder config files",
-               [
-                ".config/fish/config.fish",
-                ".config/starship.toml",
-                ".config/fish/fish_variables",
-                ".config/fish/functions/g.fish",
-                ".config/karabiner"
-               ]
-            )
+            const allPaths = walk(repoRoot).filter(isDotSource).map(toHomePath);
+            const uniquePaths = [...new Set(allPaths)];
 
-            await verify(
-              ".ssh folder",
-              [
-                ".ssh/config"
-              ]
-            )
-
-            await verify(
-              "gnupg folder",
-              [
-                ".gnupg/gpg-agent.conf",
-              ]
-            )
+            const rows = [[{ data: 'Setup Verification', header: true, colspan: '2' }]];
+            let missing = 0;
+            for (const p of uniquePaths) {
+              const exists = fs.existsSync(homedir + p);
+              if (!exists) missing++;
+              rows.push([p, exists ? '✅' : '❌']);
+            }
+            await core.summary.addTable(rows).write();
+            if (missing > 0) {
+              core.setFailed(`Setup incomplete: ${missing} path(s) missing`);
+            } else {
+              core.notice('Setup looks complete ✅');
+            }
