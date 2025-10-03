@@ -29,10 +29,10 @@ BREWFILE_REPO="{{ .chezmoi.sourceDir }}/Brewfile"
 
 if [[ -f "${BREWFILE_GLOBAL}" ]]; then
   echo "[chezmoi] Running: brew bundle --global"
-  HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --global --no-lock
+  HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --global
 elif [[ -f "${BREWFILE_REPO}" ]]; then
   echo "[chezmoi] Running: brew bundle --file=${BREWFILE_REPO}"
-  HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --file="${BREWFILE_REPO}" --no-lock
+  HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --file="${BREWFILE_REPO}"
 else
   echo "[chezmoi] No Brewfile found (expected ${BREWFILE_GLOBAL} or ${BREWFILE_REPO}). Skipping."
 fi
