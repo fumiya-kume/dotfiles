@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+# Trigger re-run when Brewfile content changes (chezmoi template)
+# Uses supported function `sha256sum` instead of unsupported `sha256`.
+# If your repo uses a different filename, adjust include target.
+# trigger: {{ include "dot_Brewfile" | sha256sum }}
+
 # Ensure brew available in this script session
 if ! command -v brew >/dev/null 2>&1; then
   if [[ -x "/opt/homebrew/bin/brew" ]]; then
@@ -31,4 +36,3 @@ elif [[ -f "${BREWFILE_REPO}" ]]; then
 else
   echo "[chezmoi] No Brewfile found (expected ${BREWFILE_GLOBAL} or ${BREWFILE_REPO}). Skipping."
 fi
-
