@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# trigger: {{ include "Library/LaunchAgents/io.github.chezmoi.auto-readd.plist.tmpl" | sha256sum }}
+
+PLIST="$HOME/Library/LaunchAgents/io.github.chezmoi.auto-readd.plist"
+
+echo "[chezmoi] (re)loading auto re-add LaunchAgent..."
+launchctl unload -w "$PLIST" >/dev/null 2>&1 || true
+launchctl load -w "$PLIST"
+echo "[chezmoi] auto re-add LaunchAgent loaded."
+
