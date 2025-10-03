@@ -1,6 +1,0 @@
-set pager-view  = line-number:yes,interval=1 text
-set stage-view  = line-number:yes,interval=1 text
-set log-view    = line-number:yes,interval=1 text
-set blob-view   = line-number:yes,interval=1 text
-set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=n
-
