@@ -16,7 +16,7 @@ jobs:
           sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --source="${GITHUB_WORKSPACE}"
 
       - name: Verify setup completed
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
