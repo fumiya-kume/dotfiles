@@ -136,8 +136,6 @@ cask "alacritty"
 cask "android-platform-tools"
 # Compact TeX distribution as alternative to the full TeX Live / MacTeX
 cask "basictex"
-# Free and open-source web browser
-cask "chromium"
 # Write, edit, and chat about your code with AI
 cask "cursor"
 # Collaborative team software
