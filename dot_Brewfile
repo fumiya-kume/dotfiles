@@ -147,6 +147,7 @@ cask "visual-studio-code@insiders"
 # 1Password
 cask "1password-cli"
 cask "1password"
+brew "codex"
 
 # Multiplayer code editor
 cask "zed"
