@@ -20,8 +20,7 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 0
 fi
 
-echo "[chezmoi] Ensuring homebrew/bundle tap is available..."
-brew tap homebrew/bundle >/dev/null 2>&1 || true
+echo "[chezmoi] Skipping deprecated homebrew/bundle tap (now built-in)."
 
 # Prefer global Brewfile (~/.Brewfile) if present, otherwise support repo-root Brewfile.
 BREWFILE_GLOBAL="${HOME}/.Brewfile"
