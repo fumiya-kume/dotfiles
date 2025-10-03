@@ -5,3 +5,9 @@
 ```
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply fumiya-kume
 ```
+
+# For credential
+
+```
+eval $(op signin)
+```
