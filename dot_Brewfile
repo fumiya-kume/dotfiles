@@ -94,8 +94,6 @@ brew "spaceship"
 brew "swift-format"
 # Formatting tool for reformatting Swift code
 brew "swiftformat"
-# Tool to enforce Swift style and conventions
-brew "swiftlint"
 # Easiest, most secure way to use WireGuard and 2FA
 brew "tailscale"
 # Text interface for Git repositories
