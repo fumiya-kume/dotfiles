@@ -12,8 +12,6 @@ brew "chezmoi"
 brew "cloc"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
-# Linux virtual machines
-brew "lima"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Secure runtime for JavaScript and TypeScript
