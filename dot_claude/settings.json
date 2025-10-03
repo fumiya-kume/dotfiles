@@ -1,0 +1,12 @@
+{
+  "env": {
+    "MAX_THINKING_TOKENS": "31999"
+  },
+  "permissions": {
+    "allowedTools": [
+      "Bash(*)",
+      "Bash(afplay:*)"
+    ],
+    "deny": []
+  }
+}
