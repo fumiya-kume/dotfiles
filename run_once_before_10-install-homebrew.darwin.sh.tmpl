@@ -23,7 +23,7 @@ fi
 
 echo "[chezmoi] Installing Homebrew to ${HOMEBREW_PREFIX}..."
 export NONINTERACTIVE=1
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "sudo $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Make brew available in this script session immediately
 if [[ -x "${HOMEBREW_PREFIX}/bin/brew" ]]; then
