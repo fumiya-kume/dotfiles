@@ -34,9 +34,13 @@ bindkey '^R' history-incremental-search-backward
 # Added by Windsurf
 export PATH="/Users/kuu/.codeium/windsurf/bin:$PATH"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
+# Homebrew zsh completions in fpath (must be before compinit)
+if command -v brew >/dev/null 2>&1; then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
 fpath=(/Users/kuu/.docker/completions $fpath)
 autoload -Uz compinit
-compinit
+compinit -i
 # End of Docker CLI completions
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 alias claude="/Users/kuu/.claude/local/claude"
