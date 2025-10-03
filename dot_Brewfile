@@ -59,8 +59,6 @@ brew "imagemagick"
 brew "ios-deploy"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# LLM inference in C/C++
-brew "llama.cpp"
 # Utility for directing compilation
 brew "make"
 # Time command execution over multiple executions
@@ -85,8 +83,6 @@ brew "python@3.12"
 brew "ripgrep"
 # SMART hard drive monitoring
 brew "smartmontools"
-# Zsh prompt for Astronauts
-brew "spaceship"
 # Formatting technology for Swift source code
 brew "swift-format"
 # Formatting tool for reformatting Swift code
