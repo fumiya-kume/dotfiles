@@ -155,6 +155,10 @@ cask "tuist"
 cask "visual-studio-code"
 # Open-source code editor
 cask "visual-studio-code@insiders"
+# 1Password
+brew "1password-cli"
+cask "1password"
+
 # Multiplayer code editor
 cask "zed"
 vscode "anthropic.claude-code"
