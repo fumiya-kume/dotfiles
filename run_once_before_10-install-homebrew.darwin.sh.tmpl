@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# Installs Homebrew on macOS if it's not already installed.
+# Runs once during chezmoi apply on Darwin hosts.
+
+if command -v brew >/dev/null 2>&1 || [[ -x "/opt/homebrew/bin/brew" ]] || [[ -x "/usr/local/bin/brew" ]]; then
+  echo "[chezmoi] Homebrew already present. Ensuring environment and skipping install."
+  if [[ -x "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -x "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+  exit 0
+fi
+
+arch_name="$(uname -m)"
+if [[ "${arch_name}" == "arm64" ]]; then
+  HOMEBREW_PREFIX="/opt/homebrew"
+else
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
+echo "[chezmoi] Installing Homebrew to ${HOMEBREW_PREFIX}..."
+export NONINTERACTIVE=1
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Make brew available in this script session immediately
+if [[ -x "${HOMEBREW_PREFIX}/bin/brew" ]]; then
+  eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+elif [[ -x "/usr/local/bin/brew" ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+echo "[chezmoi] Homebrew installed. Version: $(brew --version | head -n1)"

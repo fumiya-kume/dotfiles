@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# Runs `brew bundle` after chezmoi applies files, but only when the
+# Brewfile content changes (thanks to the embedded hash below).
+#
+# Dependency fingerprint so `run_onchange` triggers when Brewfile updates.
+# If you manage a global Brewfile (dot_Brewfile), this hash will reflect changes.
+# brewfile_hash={{ include "dot_Brewfile" | sha256 }}
+
+# Ensure brew available in this script session
+if ! command -v brew >/dev/null 2>&1; then
+  if [[ -x "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -x "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+fi
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "[chezmoi] brew not found. Skipping Brew Bundle."
+  exit 0
+fi
+
+echo "[chezmoi] Ensuring homebrew/bundle tap is available..."
+brew tap homebrew/bundle >/dev/null 2>&1 || true
+
+# Prefer global Brewfile (~/.Brewfile) if present, otherwise support repo-root Brewfile.
+BREWFILE_GLOBAL="${HOME}/.Brewfile"
+BREWFILE_REPO="{{ .chezmoi.sourceDir }}/Brewfile"
+
+if [[ -f "${BREWFILE_GLOBAL}" ]]; then
+  echo "[chezmoi] Running: brew bundle --global"
+  HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --global --no-lock
+elif [[ -f "${BREWFILE_REPO}" ]]; then
+  echo "[chezmoi] Running: brew bundle --file=${BREWFILE_REPO}"
+  HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --file="${BREWFILE_REPO}" --no-lock
+else
+  echo "[chezmoi] No Brewfile found (expected ${BREWFILE_GLOBAL} or ${BREWFILE_REPO}). Skipping."
+fi
+
