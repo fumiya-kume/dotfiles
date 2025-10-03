@@ -1,4 +1,14 @@
-source /opt/homebrew/opt/spaceship/spaceship.zsh
+# Prompt: built-in minimal Git prompt via vcs_info (no external deps)
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' formats '%F{magenta}(%b%u)%f'
+zstyle ':vcs_info:git*' actionformats '%F{magenta}(%b|%a%u)%f'
+zstyle ':vcs_info:*' unstagedstr '*'
+zstyle ':vcs_info:*' stagedstr '+'
+precmd() { vcs_info }
+PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f ${vcs_info_msg_0_}%# '
+RPROMPT='%F{red}%?%f'
 # 重複を記録しない
 setopt hist_ignore_dups
 setopt inc_append_history
@@ -18,7 +28,6 @@ alias tssh='ssh $(tailscale status | awk "/^# / {next} /^[ \t]*$/ {next} /^\-/ {
 # alias h='history 0| awk "!a[$0]++" | peco --initial-index=-1'
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 bindkey '^R' history-incremental-search-backward
-. "$HOME/.local/bin/env"
 
 # Added by Windsurf
 export PATH="/Users/kuu/.codeium/windsurf/bin:$PATH"
