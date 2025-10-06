@@ -149,7 +149,10 @@ cask "1password-cli"
 cask "1password"
 brew "codex", args: ["HEAD"]
 cask "slack"
-cask "chatgpt"
+if RUBY_PLATFORM =~ /arm64|aarch64/
+  cask "chatgpt"
+end
+
 
 # Multiplayer code editor
 cask "zed"
