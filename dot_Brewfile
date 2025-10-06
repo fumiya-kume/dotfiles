@@ -149,6 +149,7 @@ cask "1password-cli"
 cask "1password"
 brew "codex", args: ["HEAD"]
 cask "slack"
+cask "chatgpt"
 
 # Multiplayer code editor
 cask "zed"
