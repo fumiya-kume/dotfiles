@@ -148,6 +148,7 @@ cask "visual-studio-code@insiders"
 cask "1password-cli"
 cask "1password"
 brew "codex", args: ["HEAD"]
+cask "slack"
 
 # Multiplayer code editor
 cask "zed"
