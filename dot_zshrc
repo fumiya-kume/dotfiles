@@ -95,4 +95,6 @@ hide_h_preexec() {
   fi
 }
 add-zsh-hook preexec hide_h_preexec
+
+# Added by Windsurf
 export PATH="/Users/kuu/.codeium/windsurf/bin:$PATH"
