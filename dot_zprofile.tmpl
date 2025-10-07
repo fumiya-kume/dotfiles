@@ -1,0 +1,35 @@
+## Homebrew: add environment only if brew exists
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -x /usr/local/bin/brew ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+elif command -v brew >/dev/null 2>&1; then
+  eval "$(brew shellenv)"
+fi
+
+
+# Added by JetBrains Toolbox
+export PATH="$PATH:/Users/kuu/Library/Application Support/JetBrains/Toolbox/scripts"
+export PATH="/Library/TeX/texbin:$PATH"
+
+# Java: set JAVA_HOME only if a JDK is installed
+{{- $customJava := "" -}}
+{{- if hasKey .chezmoi.config.data "android_studio_java_home" -}}
+{{- $customJavaCandidate := index .chezmoi.config.data "android_studio_java_home" -}}
+{{- if ne (printf "%v" $customJavaCandidate) "" -}}
+{{- $customJava = printf "%v" $customJavaCandidate -}}
+{{- end -}}
+{{- end }}
+if [ -z "${JAVA_HOME:-}" ]; then
+{{- if ne $customJava "" }}
+  if [ -d "{{ $customJava }}" ]; then
+    export JAVA_HOME="{{ $customJava }}"
+  fi
+{{- end }}
+fi
+if [ -z "${JAVA_HOME:-}" ] && /usr/libexec/java_home >/dev/null 2>&1; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
+if [ -n "${JAVA_HOME:-}" ]; then
+  export PATH="$JAVA_HOME/bin:$PATH"
+fi
