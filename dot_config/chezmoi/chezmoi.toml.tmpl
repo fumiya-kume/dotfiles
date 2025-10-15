@@ -1,0 +1,8 @@
+# Global chezmoi configuration managed in dotfiles.
+# Add machine-specific overrides in dataByHost if needed.
+[data]
+  android_studio_java_home = "{{ .chezmoi.homeDir }}/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+
+# Example: Override per host by uncommenting and adjusting.
+# [dataByHost."Another-Host"]
+#   android_studio_java_home = "/opt/android-studio/jbr"
