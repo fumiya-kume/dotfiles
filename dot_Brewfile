@@ -1,7 +1,5 @@
 tap "adoptopenjdk/openjdk"
 tap "fumiya-kume/mdefaults"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "oven-sh/bun"
 tap "supabase/tap"
 tap "xcodesorg/made"
