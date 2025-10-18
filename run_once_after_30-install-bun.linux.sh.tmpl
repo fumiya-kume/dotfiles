@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# Installs Bun on Linux using the official install script.
+# Ensures 'unzip' is available as recommended by Bun docs.
+
+if command -v bun >/dev/null 2>&1 || [[ -x "${HOME}/.bun/bin/bun" ]]; then
+  if command -v bun >/dev/null 2>&1; then
+    echo "[chezmoi] Bun already present. Version: $(bun --version)"
+  else
+    echo "[chezmoi] Bun already present at ${HOME}/.bun/bin/bun. Version: $(${HOME}/.bun/bin/bun --version)"
+  fi
+  exit 0
+fi
+
+# Ensure unzip exists (required by installer on Linux)
+if ! command -v unzip >/dev/null 2>&1; then
+  echo "[chezmoi] 'unzip' not found. Attempting to install..."
+  if command -v apt-get >/dev/null 2>&1; then
+    sudo apt-get update -y && sudo apt-get install -y unzip
+  elif command -v dnf >/dev/null 2>&1; then
+    sudo dnf install -y unzip
+  elif command -v yum >/dev/null 2>&1; then
+    sudo yum install -y unzip
+  elif command -v apk >/dev/null 2>&1; then
+    sudo apk add --no-cache unzip
+  elif command -v pacman >/dev/null 2>&1; then
+    sudo pacman -Sy --noconfirm unzip
+  elif command -v zypper >/dev/null 2>&1; then
+    sudo zypper --non-interactive install unzip
+  else
+    echo "[chezmoi] Could not determine package manager to install 'unzip'. Please install it manually and re-run."
+    exit 1
+  fi
+fi
+
+# Ensure brew is available in this script session if installed (Linuxbrew)
+if ! command -v brew >/dev/null 2>&1; then
+  if [[ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]]; then
+    eval "$('/home/linuxbrew/.linuxbrew/bin/brew' shellenv)"
+  elif [[ -x "${HOME}/.linuxbrew/bin/brew" ]]; then
+    eval "$("${HOME}/.linuxbrew/bin/brew" shellenv)"
+  fi
+fi
+
+# Prefer Homebrew if present (Linuxbrew), otherwise use official install script
+if command -v brew >/dev/null 2>&1; then
+  echo "[chezmoi] Installing Bun via Homebrew (Linuxbrew)..."
+  brew tap oven-sh/bun >/dev/null 2>&1 || true
+  brew install bun
+else
+  echo "[chezmoi] Installing Bun via official script..."
+  curl -fsSL https://bun.sh/install | bash
+fi
+
+# Ensure Bun is on PATH for the remainder of this script
+if [[ -x "${HOME}/.bun/bin/bun" ]]; then
+  export BUN_INSTALL="${BUN_INSTALL:-${HOME}/.bun}"
+  export PATH="${BUN_INSTALL}/bin:${PATH}"
+fi
+
+echo "[chezmoi] Bun installed. Version: $(bun --version)"

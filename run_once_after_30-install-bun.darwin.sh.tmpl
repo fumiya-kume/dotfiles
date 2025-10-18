@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# Installs Bun on macOS via Homebrew (managed in Brewfile).
+# No curl fallback to keep Bun managed by brew/bundle.
+
+if command -v bun >/dev/null 2>&1 || [[ -x "${HOME}/.bun/bin/bun" ]]; then
+  if command -v bun >/dev/null 2>&1; then
+    echo "[chezmoi] Bun already present. Version: $(bun --version)"
+  else
+    echo "[chezmoi] Bun already present at ${HOME}/.bun/bin/bun. Version: $(${HOME}/.bun/bin/bun --version)"
+  fi
+  exit 0
+fi
+
+# Ensure brew is available in this script session if installed
+if ! command -v brew >/dev/null 2>&1; then
+  if [[ -x "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -x "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+fi
+
+if command -v brew >/dev/null 2>&1; then
+  echo "[chezmoi] Ensuring Bun is installed via Brewfile..."
+  # Brew Bundle step should have run earlier; run a targeted ensure as a safeguard.
+  brew tap oven-sh/bun >/dev/null 2>&1 || true
+  brew list bun >/dev/null 2>&1 || brew install oven-sh/bun/bun
+else
+  echo "[chezmoi] Homebrew not found. Skipping Bun install to keep brew-managed state."
+  echo "[chezmoi] Once Homebrew is installed, run: brew bundle --global"
+  exit 0
+fi
+
+# Ensure Bun is on PATH for the remainder of this script
+if [[ -x "${HOME}/.bun/bin/bun" ]]; then
+  export BUN_INSTALL="${BUN_INSTALL:-${HOME}/.bun}"
+  export PATH="${BUN_INSTALL}/bin:${PATH}"
+fi
+
+echo "[chezmoi] Bun installed. Version: $(bun --version)"

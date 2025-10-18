@@ -1,7 +1,14 @@
+tap "adoptopenjdk/openjdk"
+tap "fumiya-kume/mdefaults"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "oven-sh/bun"
 tap "supabase/tap"
 tap "xcodesorg/made"
 # Platform built on V8 to build network applications
 brew "node"
+# JavaScript runtime & toolkit
+brew "oven-sh/bun/bun"
 # CLI tool for analyzing Claude Code usage from local JSONL files
 brew "ccusage"
 # Manage your dotfiles across multiple diverse machines, securely
