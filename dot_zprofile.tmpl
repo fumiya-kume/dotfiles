@@ -14,8 +14,9 @@ export PATH="/Library/TeX/texbin:$PATH"
 
 # Java: set JAVA_HOME only if a JDK is installed
 {{- $customJava := "" -}}
-{{- if hasKey .chezmoi.config.data "android_studio_java_home" -}}
-{{- $customJavaCandidate := index .chezmoi.config.data "android_studio_java_home" -}}
+{{- $cfgData := (.chezmoi.config.data | default (dict)) -}}
+{{- if hasKey $cfgData "android_studio_java_home" -}}
+{{- $customJavaCandidate := index $cfgData "android_studio_java_home" -}}
 {{- if ne (printf "%v" $customJavaCandidate) "" -}}
 {{- $customJava = printf "%v" $customJavaCandidate -}}
 {{- end -}}
