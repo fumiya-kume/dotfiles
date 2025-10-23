@@ -57,7 +57,6 @@ brew "goreleaser"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
 # C/C++ and Java libraries for Unicode and globalization
-brew "icu4c@76"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Install and debug iPhone apps from the command-line
