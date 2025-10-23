@@ -1,3 +1,4 @@
+{{- if eq .chezmoi.os "windows" -}}
 #!/usr/bin/env pwsh
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
@@ -45,4 +46,8 @@ try {
   $version = "installed"
 }
 Write-Output "[chezmoi] Bun installed. Version: $version"
-
+{{- else -}}
+# Non-Windows host: this script is intentionally a no-op to avoid attempting
+# to run a PowerShell-specific installer when pwsh is not available.
+exit 0
+{{- end }}

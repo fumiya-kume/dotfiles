@@ -64,7 +64,18 @@ else
 fi
 
 # Resolve Brewfile path
-BUNDLE_FILE=${HOMEBREW_BUNDLE_FILE:-"$HOME/Brewfile"}
+# Prefer HOMEBREW_BUNDLE_FILE if set. Otherwise prefer ~/.Brewfile (used by `brew bundle --global`),
+# falling back to ~/Brewfile for setups that use a non-dot file.
+if [ -n "${HOMEBREW_BUNDLE_FILE:-}" ]; then
+  BUNDLE_FILE="$HOMEBREW_BUNDLE_FILE"
+else
+  if [ -f "$HOME/.Brewfile" ]; then
+    BUNDLE_FILE="$HOME/.Brewfile"
+  else
+    BUNDLE_FILE="$HOME/Brewfile"
+  fi
+fi
+
 if [ ! -f "$BUNDLE_FILE" ]; then
   info "Brewfile not found at $BUNDLE_FILE; skipping check"
   exit 0
