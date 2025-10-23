@@ -110,3 +110,4 @@ add-zsh-hook preexec hide_h_preexec
 # Added by Windsurf
 export PATH="/Users/kuu/.codeium/windsurf/bin:$PATH"
 export JAVA_HOME=$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
