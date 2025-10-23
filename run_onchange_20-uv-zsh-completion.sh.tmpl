@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Generate zsh completion for `uv` into XDG site-functions when not provided by brew.
+
+if ! command -v uv >/dev/null 2>&1; then
+  echo "uv not found; skip zsh completion generation"
+  exit 0
+fi
+
+# If Homebrew provides completion, prefer it.
+BREW_COMPLETION="$(command -v brew >/dev/null 2>&1 && brew --prefix 2>/dev/null || true)/share/zsh/site-functions/_uv"
+if [[ -n "${BREW_COMPLETION}" && -r "${BREW_COMPLETION}" ]]; then
+  echo "Found Homebrew _uv completion at ${BREW_COMPLETION}; skipping custom generation"
+  exit 0
+fi
+
+ZSF_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/site-functions"
+mkdir -p -- "${ZSF_DIR}"
+OUT="${ZSF_DIR}/_uv"
+
+generate() {
+  local cmd
+  # Try several common subcommands/flags used by Rust CLIs
+  for cmd in \
+    "uv --generate-completion zsh" \
+    "uv generate-completion zsh" \
+    "uv generate-shell-completion zsh" \
+    "uv completions zsh" \
+    "uv completion zsh" \
+    "uv self completion -s zsh" \
+  ; do
+    if output=$(eval "$cmd" 2>/dev/null) && [[ -n "${output}" ]]; then
+      printf '%s\n' "$output" >"${OUT}.tmp"
+      mv -f -- "${OUT}.tmp" "${OUT}"
+      echo "Wrote uv zsh completion via: $cmd -> ${OUT}"
+      return 0
+    fi
+  done
+  return 1
+}
+
+if ! generate; then
+  echo "Could not generate uv zsh completion automatically."
+  echo "If uv provides a completion generator, run it and save to: ${OUT}"
+  exit 0
+fi
+

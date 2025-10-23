@@ -38,6 +38,8 @@ export PATH="/Users/kuu/.codeium/windsurf/bin:$PATH"
 if command -v brew >/dev/null 2>&1; then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fi
+# User completions (chezmoi-managed, for tools like uv)
+fpath=($HOME/.local/share/zsh/site-functions $fpath)
 fpath=(/Users/kuu/.docker/completions $fpath)
 autoload -Uz compinit
 compinit -i
@@ -46,6 +48,15 @@ export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 alias claude="/Users/kuu/.claude/local/claude"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# --- uv / local bin ---
+# The official uv installer places binaries in ~/.local/bin.
+# If not present in PATH, prepend it to enable commands.
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
+# --- /uv / local bin ---
 
 # --- zsh-autosuggestions ---
 # 設定はsource前に定義

@@ -1,0 +1,22 @@
+# Global configuration for Astral's `uv`.
+# Managed by chezmoi; edit this template to suit your needs.
+# This file intentionally keeps settings commented until you choose them.
+# Refer to uv’s docs for the full set of options.
+
+# Example settings you can enable (uncomment and adjust):
+
+## Where uv installs standalone tools (similar to pipx)
+# [tool]
+# install-dir = "{{ .chezmoi.homeDir }}/.local/bin"
+
+## Preferred Python version when creating new environments
+# [python]
+# default = "python3.12"
+
+## Use a custom package index (mirror/proxy)
+# [index]
+# url = "https://pypi.org/simple"
+
+## Cache directory override
+# [cache]
+# dir = "{{ .chezmoi.homeDir }}/.cache/uv"
