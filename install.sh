@@ -4,16 +4,8 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$DOTFILES_DIR"
 
-#=============================================================================
-# Utility functions
-#=============================================================================
 log() { printf '\033[0;32m[✓]\033[0m %s\n' "$*"; }
 warn() { printf '\033[0;33m[!]\033[0m %s\n' "$*"; }
-err() { printf '\033[0;31m[✗]\033[0m %s\n' "$*" >&2; }
-
-#=============================================================================
-# Create symlink (backup existing files)
-#=============================================================================
 link() {
   local src="$1" dst="$2"
 
@@ -35,9 +27,6 @@ link() {
   log "Linked: $dst -> $src"
 }
 
-#=============================================================================
-# Skip patterns for home directory
-#=============================================================================
 should_skip() {
   local name="$1"
   case "$name" in
@@ -50,9 +39,6 @@ should_skip() {
   esac
 }
 
-#=============================================================================
-# Home directory dotfiles (home/.*)
-#=============================================================================
 log "Setting up home directory dotfiles..."
 for f in "$DOTFILES_DIR"/home/.*; do
   [[ -e "$f" ]] || continue
@@ -61,9 +47,6 @@ for f in "$DOTFILES_DIR"/home/.*; do
   link "$f" "$HOME/$name"
 done
 
-#=============================================================================
-# .config directory
-#=============================================================================
 if [[ -d "$DOTFILES_DIR/.config" ]]; then
   log "Setting up .config directory..."
   mkdir -p "$HOME/.config"
@@ -74,9 +57,6 @@ if [[ -d "$DOTFILES_DIR/.config" ]]; then
   done
 fi
 
-#=============================================================================
-# .ssh directory (with permissions)
-#=============================================================================
 if [[ -d "$DOTFILES_DIR/.ssh" ]]; then
   log "Setting up .ssh directory..."
   mkdir -p "$HOME/.ssh"
@@ -89,9 +69,6 @@ if [[ -d "$DOTFILES_DIR/.ssh" ]]; then
   done
 fi
 
-#=============================================================================
-# .gnupg directory (with permissions)
-#=============================================================================
 if [[ -d "$DOTFILES_DIR/.gnupg" ]]; then
   log "Setting up .gnupg directory..."
   mkdir -p "$HOME/.gnupg"
@@ -103,18 +80,12 @@ if [[ -d "$DOTFILES_DIR/.gnupg" ]]; then
   done
 fi
 
-#=============================================================================
-# Claude Code (settings.json only)
-#=============================================================================
 if [[ -f "$DOTFILES_DIR/.claude/settings.json" ]]; then
   log "Setting up Claude Code settings..."
   mkdir -p "$HOME/.claude"
   link "$DOTFILES_DIR/.claude/settings.json" "$HOME/.claude/settings.json"
 fi
 
-#=============================================================================
-# Codex CLI
-#=============================================================================
 if [[ -d "$DOTFILES_DIR/.codex" ]]; then
   log "Setting up Codex CLI..."
   mkdir -p "$HOME/.codex"
@@ -125,9 +96,6 @@ if [[ -d "$DOTFILES_DIR/.codex" ]]; then
   done
 fi
 
-#=============================================================================
-# ~/Library (macOS only)
-#=============================================================================
 if [[ -d "$DOTFILES_DIR/Library" && "$(uname)" == "Darwin" ]]; then
   log "Setting up ~/Library..."
 
@@ -149,9 +117,6 @@ if [[ -d "$DOTFILES_DIR/Library" && "$(uname)" == "Darwin" ]]; then
   fi
 fi
 
-#=============================================================================
-# uv zsh completion (auto-generate if needed)
-#=============================================================================
 setup_uv_completion() {
   if ! command -v uv >/dev/null 2>&1; then
     return 0
@@ -182,9 +147,6 @@ setup_uv_completion() {
 }
 setup_uv_completion
 
-#=============================================================================
-# Optional: Install packages (--with-packages flag)
-#=============================================================================
 if [[ "${1:-}" == "--with-packages" ]]; then
   log "Running setup scripts..."
 
@@ -212,13 +174,4 @@ if [[ "${1:-}" == "--with-packages" ]]; then
   fi
 fi
 
-#=============================================================================
-# Done
-#=============================================================================
-echo ""
 log "Done! Restart your shell or run: source ~/.zshrc"
-echo ""
-echo "Quick test commands:"
-echo "  ls -la ~/.zshrc              # Should point to ~/dotfiles/home/.zshrc"
-echo "  gh auth status               # Test 1Password gh integration"
-echo "  with-secrets env | grep -E 'GITHUB|ANTHROPIC'  # Test op run"
