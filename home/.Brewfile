@@ -1,4 +1,3 @@
-tap "adoptopenjdk/openjdk"
 tap "fumiya-kume/mdefaults"
 tap "oven-sh/bun"
 tap "supabase/tap"
@@ -17,10 +16,6 @@ brew "cocoapods"
 brew "coreutils"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
-# Pack, ship and run any application as a lightweight container
-brew "docker"
-# Isolated development environments using Docker
-brew "docker-compose"
 cask "docker-desktop"
 # Program that can automate interactive applications
 brew "expect"
@@ -54,7 +49,6 @@ brew "golangci-lint"
 brew "goreleaser"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
-# C/C++ and Java libraries for Unicode and globalization
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Install and debug iPhone apps from the command-line
@@ -146,8 +140,6 @@ cask "tuist"
 cask "visual-studio-code"
 # Open-source code editor
 cask "visual-studio-code@insiders"
-# 1Password
-cask "1password-cli"
 cask "1password"
 cask "1password-cli"
 brew "codex", args: ["HEAD"]
@@ -155,7 +147,6 @@ cask "slack"
 if RUBY_PLATFORM =~ /arm64|aarch64/
   cask "chatgpt"
 end
-
 
 # Multiplayer code editor
 cask "zed"
