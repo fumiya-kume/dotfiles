@@ -151,6 +151,7 @@ cask "visual-studio-code@insiders"
 # 1Password
 cask "1password-cli"
 cask "1password"
+cask "1password-cli"
 brew "codex", args: ["HEAD"]
 cask "slack"
 if RUBY_PLATFORM =~ /arm64|aarch64/
