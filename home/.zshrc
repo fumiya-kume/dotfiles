@@ -6,20 +6,12 @@ zstyle ':vcs_info:git*' formats '%F{magenta}(%b%u)%f'
 zstyle ':vcs_info:git*' actionformats '%F{magenta}(%b|%a%u)%f'
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' stagedstr '+'
-precmd() {
-  vcs_info
-  RPROMPT=""
-}
+precmd() { vcs_info }
 PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f ${vcs_info_msg_0_}%# '
-# 重複を記録しない
-setopt hist_ignore_dups
-setopt inc_append_history
-setopt hist_no_store
-setopt hist_reduce_blanks
-setopt hist_ignore_all_dups
-setopt share_history
-SAVEHIST=10000
+setopt hist_ignore_all_dups inc_append_history hist_no_store hist_reduce_blanks share_history
+HISTFILE=~/.zsh_history
 HISTSIZE=10000
+SAVEHIST=10000
 
 alias g='cd $(ghq list | peco | xargs -I {} echo $(ghq root)/{})'
 alias gb='git switch -m $(git branch -a | grep -v -e "->" -e "*" | perl -pe "s/^\h+//g" | while read -r line; do echo ${line#remotes/origin/}; done | uniq | peco)'
@@ -31,8 +23,10 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 bindkey '^R' history-incremental-search-backward
 
 # Zsh completions (must be before compinit)
-if command -v brew >/dev/null 2>&1; then
-  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+if [[ -d /opt/homebrew/share/zsh/site-functions ]]; then
+  fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+elif [[ -d /usr/local/share/zsh/site-functions ]]; then
+  fpath=(/usr/local/share/zsh/site-functions $fpath)
 fi
 fpath=($HOME/.local/share/zsh/site-functions $fpath)
 fpath=($HOME/.docker/completions $fpath)
@@ -82,19 +76,9 @@ bindkey '^F' autosuggest-accept
 unalias h 2>/dev/null
 h() {
   emulate -L zsh
-  local selected histfile src
-  histfile=${HISTFILE:-$HOME/.zsh_history}
-  # Get history and reverse it to show newest first
-  if src=$(builtin fc -ln 1 2>/dev/null); then
-    # Reverse the order using awk (newest first)
-    src=$(printf '%s\n' $src | awk '{a[NR]=$0} END{for(i=NR;i>=1;i--) print a[i]}')
-  else
-    src=$(sed -e 's/^: [0-9]\+:[0-9];//' -- "$histfile" 2>/dev/null || true)
-    # Reverse the order using tail (newest first)
-    src=$(printf '%s\n' $src | awk '{a[NR]=$0} END{for(i=NR;i>=1;i--) print a[i]}')
-  fi
-  selected=$(printf '%s
-' "$src" | awk '!a[$0]++' | peco --initial-index=0) || return
+  local selected src
+  src=$(builtin fc -ln 1 2>/dev/null) || return
+  selected=$(printf '%s\n' $src | awk '{a[NR]=$0} END{for(i=NR;i>=1;i--)if(!seen[a[i]]++)print a[i]}' | peco) || return
   [[ -z "$selected" ]] && return
   print -s -- "$selected"
   echo "+ $selected"
