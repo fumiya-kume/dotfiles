@@ -3,10 +3,33 @@ name: E2E_Test
 on:
   push:
     branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
   E2E_Test:
     runs-on: macos-latest
     steps:
-      - name: itest
-        run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply fumiya-kume
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run install.sh
+        run: ./install.sh
+
+      - name: Verify symlinks
+        run: |
+          echo "=== Checking symlinks ==="
+          ls -la ~/.zshrc
+          ls -la ~/.zprofile
+          ls -la ~/.config/starship.toml
+          echo "=== Symlink targets ==="
+          readlink ~/.zshrc
+          readlink ~/.zprofile
+
+      - name: Verify shell syntax
+        run: |
+          echo "=== Checking shell syntax ==="
+          bash -n home/.zshrc || echo "Note: zsh-specific syntax may differ"
+          bash -n home/.zprofile
+          bash -n scripts/install-homebrew.sh
+          bash -n scripts/install-uv.sh

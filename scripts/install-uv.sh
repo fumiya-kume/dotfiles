@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Idempotent installer for Astral's `uv`, managed by chezmoi.
-# Runs once on `chezmoi apply`.
+# Idempotent installer for Astral's `uv`.
 
 if command -v uv >/dev/null 2>&1; then
   echo "uv already installed at $(command -v uv)"
@@ -11,7 +10,10 @@ fi
 
 echo "Installing uv…"
 
-case "{{ .chezmoi.os }}" in
+# Get OS name in lowercase (darwin, linux, etc.)
+_os="$(uname | tr '[:upper:]' '[:lower:]')"
+
+case "$_os" in
   darwin)
     if command -v brew >/dev/null 2>&1; then
       echo "Detected Homebrew; installing via brew"
@@ -26,11 +28,10 @@ case "{{ .chezmoi.os }}" in
     curl -LsSf https://astral.sh/uv/install.sh | sh
     ;;
   *)
-    echo "Unsupported OS in template: {{ .chezmoi.os }}"
+    echo "Unsupported OS: $_os"
     echo "Please install uv manually: https://astral.sh/uv/"
     exit 1
     ;;
 esac
 
 echo "uv installation complete. If ~/.local/bin is not on PATH, add it."
-

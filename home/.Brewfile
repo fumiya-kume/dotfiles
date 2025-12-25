@@ -9,8 +9,6 @@ brew "node"
 brew "oven-sh/bun/bun"
 # CLI tool for analyzing Claude Code usage from local JSONL files
 brew "ccusage"
-# Manage your dotfiles across multiple diverse machines, securely
-brew "chezmoi"
 # Statistics utility to count lines of code
 brew "cloc"
 # Dependency manager for Cocoa projects

@@ -1,6 +1,17 @@
-config/.config/goose/logs
-config/.config/goose/mcp-hermit
-config/.config/firebase
-config/.config/uv
-config/.ssh/config
+# macOS
 .DS_Store
+.localized
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Local settings (not synced)
+.claude/settings.local.json
+.claude/projects/
+.claude/todos/
+.claude/plans/
+
+# Backup files created by install.sh
+*.bak.*

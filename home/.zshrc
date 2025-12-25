@@ -31,8 +31,6 @@ alias tssh='ssh $(tailscale status | awk "/^# / {next} /^[ \t]*$/ {next} /^\-/ {
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 bindkey '^R' history-incremental-search-backward
 
-# Added by Windsurf
-export PATH="/Users/kuu/.codeium/windsurf/bin:$PATH"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 # Homebrew zsh completions in fpath (must be before compinit)
 if command -v brew >/dev/null 2>&1; then
@@ -40,7 +38,7 @@ if command -v brew >/dev/null 2>&1; then
 fi
 # User completions (chezmoi-managed, for tools like uv)
 fpath=($HOME/.local/share/zsh/site-functions $fpath)
-fpath=(/Users/kuu/.docker/completions $fpath)
+fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit -i
 # End of Docker CLI completions
@@ -117,9 +115,7 @@ hide_h_preexec() {
 add-zsh-hook preexec hide_h_preexec
 
 # Added by Windsurf
-export PATH="/Users/kuu/.codeium/windsurf/bin:$PATH"
-export JAVA_HOME=$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home"
-export PATH="$JAVA_HOME/bin:$PATH"
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 
 # >>> codex-cli init >>>
 # Codex: Gitリポジトリ内でのみ CODEX_HOME を設定
@@ -136,3 +132,20 @@ _codex_update_codex_home() {
 add-zsh-hook chpwd _codex_update_codex_home
 _codex_update_codex_home
 # <<< codex-cli init <<<
+
+# --- 1Password CLI Integration ---
+# GitHub CLI: authenticate via 1Password Shell Plugin
+alias gh="op plugin run -- gh"
+
+# op command completion
+if command -v op >/dev/null 2>&1; then
+  eval "$(op completion zsh)"
+fi
+
+# Helper function to run commands with secrets from 1Password
+# Usage: with-secrets ./deploy.sh
+#        OP_ENV_FILE=~/.config/op/work.template with-secrets ./script.sh
+with-secrets() {
+  op run --env-file="${OP_ENV_FILE:-$HOME/.config/op/env.template}" -- "$@"
+}
+# --- /1Password CLI Integration ---
