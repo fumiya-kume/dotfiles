@@ -27,21 +27,17 @@ alias cl='clear'
 alias ts='tig status'
 alias gp='git pull --autostash'
 alias tssh='ssh $(tailscale status | awk "/^# / {next} /^[ \t]*$/ {next} /^\-/ {next} {print \$2}" | peco | tr "\n" "\0")'
-# alias h='history 0| awk "!a[$0]++" | peco --initial-index=-1'
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 bindkey '^R' history-incremental-search-backward
 
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-# Homebrew zsh completions in fpath (must be before compinit)
+# Zsh completions (must be before compinit)
 if command -v brew >/dev/null 2>&1; then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fi
-# User completions (chezmoi-managed, for tools like uv)
 fpath=($HOME/.local/share/zsh/site-functions $fpath)
 fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit -i
-# End of Docker CLI completions
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 
 # Use a guarded alias for `claude` only if the command is not found.
@@ -86,7 +82,6 @@ bindkey '^F' autosuggest-accept
 unalias h 2>/dev/null
 h() {
   emulate -L zsh
-  setopt pipefail
   local selected histfile src
   histfile=${HISTFILE:-$HOME/.zsh_history}
   # Get history and reverse it to show newest first
@@ -118,9 +113,6 @@ add-zsh-hook preexec hide_h_preexec
 export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 
 # >>> codex-cli init >>>
-# Codex: Gitリポジトリ内でのみ CODEX_HOME を設定
-autoload -Uz add-zsh-hook
-
 _codex_update_codex_home() {
   local root
   if root=$(git rev-parse --show-toplevel 2>/dev/null); then
