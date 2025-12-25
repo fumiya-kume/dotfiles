@@ -45,7 +45,16 @@ autoload -Uz compinit
 compinit -i
 # End of Docker CLI completions
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
-alias claude="/Users/kuu/.claude/local/claude"
+
+# Use a guarded alias for `claude` only if the command is not found.
+# This prevents shadowing Homebrew's `/usr/local/bin/claude` (Intel)
+# or `/opt/homebrew/bin/claude` (Apple Silicon), and only falls back
+# to the legacy local install when it actually exists.
+if ! command -v claude >/dev/null 2>&1; then
+  if [[ -x "$HOME/.claude/local/claude" ]]; then
+    alias claude="$HOME/.claude/local/claude"
+  fi
+fi
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
@@ -111,3 +120,19 @@ add-zsh-hook preexec hide_h_preexec
 export PATH="/Users/kuu/.codeium/windsurf/bin:$PATH"
 export JAVA_HOME=$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 export PATH="$JAVA_HOME/bin:$PATH"
+
+# >>> codex-cli init >>>
+# Codex: Gitリポジトリ内でのみ CODEX_HOME を設定
+autoload -Uz add-zsh-hook
+
+_codex_update_codex_home() {
+  local root
+  if root=$(git rev-parse --show-toplevel 2>/dev/null); then
+    export CODEX_HOME="$root/.codex"
+  else
+    unset CODEX_HOME
+  fi
+}
+add-zsh-hook chpwd _codex_update_codex_home
+_codex_update_codex_home
+# <<< codex-cli init <<<
