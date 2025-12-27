@@ -20,3 +20,5 @@
 # GitHub Copilot
 .github/copilot/
 **/github-copilot
+**/goose
+**/yarn
