@@ -12,6 +12,7 @@
 .claude/projects/
 .claude/todos/
 .claude/plans/
+.cursor/plans
 
 # Backup files created by install.sh
 *.bak.*

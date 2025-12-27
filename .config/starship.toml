@@ -45,6 +45,7 @@ renamed = "👅"
 deleted = "🗑"
 
 [aws]
+disabled = true
 symbol = " "
 
 [battery]

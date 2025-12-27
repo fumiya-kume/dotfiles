@@ -147,27 +147,27 @@ setup_uv_completion() {
 }
 setup_uv_completion
 
+# Homebrew setup (always runs)
+if [[ ! -x "/opt/homebrew/bin/brew" && ! -x "/usr/local/bin/brew" ]]; then
+  if [[ -f "$DOTFILES_DIR/scripts/install-homebrew.sh" ]]; then
+    log "Installing Homebrew..."
+    bash "$DOTFILES_DIR/scripts/install-homebrew.sh"
+  fi
+fi
+
+if [[ -x "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x "/usr/local/bin/brew" ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+if command -v brew >/dev/null 2>&1 && [[ -f "$HOME/.Brewfile" ]]; then
+  log "Running brew bundle..."
+  brew bundle --global
+fi
+
+# Optional: additional package managers
 if [[ "${1:-}" == "--with-packages" ]]; then
-  log "Running setup scripts..."
-
-  if [[ ! -x "/opt/homebrew/bin/brew" && ! -x "/usr/local/bin/brew" ]]; then
-    if [[ -f "$DOTFILES_DIR/scripts/install-homebrew.sh" ]]; then
-      log "Installing Homebrew..."
-      bash "$DOTFILES_DIR/scripts/install-homebrew.sh"
-    fi
-  fi
-
-  if [[ -x "/opt/homebrew/bin/brew" ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-  elif [[ -x "/usr/local/bin/brew" ]]; then
-    eval "$(/usr/local/bin/brew shellenv)"
-  fi
-
-  if command -v brew >/dev/null 2>&1 && [[ -f "$HOME/.Brewfile" ]]; then
-    log "Running brew bundle..."
-    brew bundle --global
-  fi
-
   if [[ -f "$DOTFILES_DIR/scripts/install-uv.sh" ]] && ! command -v uv >/dev/null 2>&1; then
     log "Installing uv..."
     bash "$DOTFILES_DIR/scripts/install-uv.sh"
