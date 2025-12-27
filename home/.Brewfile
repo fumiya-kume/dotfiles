@@ -143,6 +143,9 @@ cask "visual-studio-code@insiders"
 cask "1password"
 cask "1password-cli"
 brew "codex", args: ["HEAD"]
+cask "claude-code"
+cask "antigravity"
+brew "gemini-cli"
 cask "slack"
 if RUBY_PLATFORM =~ /arm64|aarch64/
   cask "chatgpt"

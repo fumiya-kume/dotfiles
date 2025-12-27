@@ -1,10 +1,14 @@
 {
-  // Managed by chezmoi. Safe defaults only.
   "editor.fontFamily": "JetBrainsMono Nerd Font, Menlo, monospace",
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
   "telemetry.telemetryLevel": "off",
   "cursor.rpcFileLogger.enabled": true,
   "cursor.enable_git_worktrees_setting": true,
-  "cursor.agent_layout_browser_beta_setting": true
+  "cursor.agent_layout_browser_beta_setting": true,
+  "update.releaseTrack": "dev",
+  "update.mode": "silentlyApplyOnQuit",
+  "git.confirmSync": false,
+  "makefile.configureOnOpen": true,
+  "git.autofetch": true,
+  "diffEditor.renderSideBySide": false
 }
-
