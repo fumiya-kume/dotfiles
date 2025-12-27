@@ -8,4 +8,6 @@ if [[ -x "/opt/homebrew/bin/brew" ]] || [[ -x "/usr/local/bin/brew" ]]; then
 fi
 
 echo "Installing Homebrew..."
+echo "This requires administrator privileges."
+sudo -v  # Prompt for password and cache credentials
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
