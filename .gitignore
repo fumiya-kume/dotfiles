@@ -16,3 +16,6 @@
 
 # Backup files created by install.sh
 *.bak.*
+
+# GitHub Copilot
+.github/copilot/
