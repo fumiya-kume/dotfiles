@@ -1,5 +1,5 @@
 # dotfiles
 
 ```bash
-git clone https://github.com/fumiya-kume/dotfiles.git ~/dotfiles && ~/dotfiles/install.sh
+mkdir -p ~/dotfiles && curl -fsSL https://github.com/fumiya-kume/dotfiles/archive/refs/heads/master.tar.gz | tar -xz -C ~/dotfiles --strip-components=1 && ~/dotfiles/install.sh
 ```
