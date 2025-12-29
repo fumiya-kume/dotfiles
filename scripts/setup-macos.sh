@@ -1,6 +1,4 @@
 defaults write com.apple.finder AppleShowAllFiles TRUE
-defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
-defaults write com.apple.commerce AutoUpdate -bool false
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder QLEnableTextSelection -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
@@ -10,7 +8,6 @@ defaults write com.apple.dock autohide -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -boolean true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true && \
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
-defaults write com.apple.LaunchServices LSQuarantine -bool false 
 defaults write com.apple.dock static-only -bool true
 defaults write com.apple.TextEdit RichText -int 0
 sudo chflags nohidden /Volumes

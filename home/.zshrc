@@ -61,7 +61,7 @@ h() {
   emulate -L zsh
   local selected src
   src=$(builtin fc -ln 1 2>/dev/null) || return
-  selected=$(printf '%s\n' $src | awk '{a[NR]=$0} END{for(i=NR;i>=1;i--)if(!seen[a[i]]++)print a[i]}' | peco) || return
+  selected=$(printf '%s\n' "${(f)src}" | awk '{a[NR]=$0} END{for(i=NR;i>=1;i--)if(!seen[a[i]]++)print a[i]}' | peco) || return
   [[ -z "$selected" ]] && return
   print -s -- "$selected"
   echo "+ $selected"
