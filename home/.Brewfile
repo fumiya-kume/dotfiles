@@ -1,167 +1,130 @@
+# Taps
 tap "fumiya-kume/mdefaults"
 tap "oven-sh/bun"
 tap "supabase/tap"
 tap "xcodesorg/made"
-# Platform built on V8 to build network applications
-brew "node"
-# JavaScript runtime & toolkit
-brew "oven-sh/bun/bun"
-# CLI tool for analyzing Claude Code usage from local JSONL files
-brew "ccusage"
-# Statistics utility to count lines of code
-brew "cloc"
-# Dependency manager for Cocoa projects
-brew "cocoapods"
-# GNU File, Shell, and Text utilities
-brew "coreutils"
-# Secure runtime for JavaScript and TypeScript
+
+# Languages & Runtimes
 brew "deno"
-cask "docker-desktop"
-# Program that can automate interactive applications
-brew "expect"
-# Play, record, convert, and stream audio and video
-brew "ffmpeg"
-# User-friendly command-line shell for UNIX-like operating systems
-brew "fish"
-# Command-line fuzzy finder written in Go
-brew "fzf"
-# GitHub command-line tool
-brew "gh"
-# Remote repository management made easy
-brew "ghq"
-# Distributed revision control system
-brew "git"
-# Git extension for versioning large files
-brew "git-lfs"
-# GNU implementation of the famous stream editor
-brew "gnu-sed"
-# GNU implementation of time utility
-brew "gnu-time"
-# Passphrase entry dialog utilizing the Assuan protocol
-brew "pinentry"
-# GNU Pretty Good Privacy (PGP) package
-brew "gnupg"
-# Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Fast linters runner for Go
-brew "golangci-lint"
-# Deliver Go binaries as fast and easily as possible
-brew "goreleaser"
-# Open-source build automation tool based on the Groovy and Kotlin DSL
-brew "gradle"
-# Tools and libraries to manipulate images in many formats
-brew "imagemagick"
-# Install and debug iPhone apps from the command-line
-brew "ios-deploy"
-# Lightweight and flexible command-line JSON processor
-brew "jq"
-# Utility for directing compilation
-brew "make"
-# Time command execution over multiple executions
-brew "multitime"
-# Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
-# Generate clients, server & docs from an OpenAPI spec (v2, v3)
-brew "openapi-generator"
-# Swiss-army knife of markup format conversion
-brew "pandoc"
-# Simplistic interactive filtering tool
-brew "peco"
-# Pinentry for GPG on Mac
-brew "pinentry-mac"
-# PDF rendering library (based on the xpdf-3.0 code base)
-brew "poppler"
-cask "windsurf"
-cask "trae"
-# Interpreted, interactive, object-oriented programming language
+brew "node"
+brew "oven-sh/bun/bun"
 brew "python@3.11"
-# Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
-# Search tool like grep and The Silver Searcher
-brew "ripgrep"
-# SMART hard drive monitoring
-brew "smartmontools"
-# Formatting technology for Swift source code
-brew "swift-format"
-# Formatting tool for reformatting Swift code
-brew "swiftformat"
-# Easiest, most secure way to use WireGuard and 2FA
-brew "tailscale"
-# Text interface for Git repositories
-brew "tig"
-# Display directories as trees (with optional color/HTML output)
-brew "tree"
-# Internet file retriever
-brew "wget"
-# Little beautifier tool for xcodebuild
-brew "xcbeautify"
-# Build server protocol implementation for integrating Xcode with sourcekit-lsp
-brew "xcode-build-server"
-# Generate your Xcode project from a spec file and your folder structure
-brew "xcodegen"
-# XML command-line utilities
-brew "xmlstarlet"
-# JavaScript package manager
-brew "yarn"
-# Fish-like fast/unobtrusive autosuggestions for zsh
-brew "zsh-autosuggestions"
-# Install and switch between multiple versions of Xcode
-brew "xcodesorg/made/xcodes"
-# Android SDK component
-cask "android-platform-tools"
-# Compact TeX distribution as alternative to the full TeX Live / MacTeX
-cask "basictex"
-# Write, edit, and chat about your code with AI
-cask "cursor"
-# Collaborative team software
-cask "figma"
-# UI toolkit for building applications for mobile, web and desktop
-cask "flutter"
-cask "font-jetbrains-mono-nerd-font"
-# GIT client
-cask "fork"
-# Set of tools to manage resources and applications hosted on Google Cloud
-cask "gcloud-cli"
-# Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty"
-# Markdown editor
-cask "inkdrop"
-# JetBrains tools manager
-cask "jetbrains-toolbox"
-# Keyboard customiser
-cask "karabiner-elements"
-# App to write, plan, collaborate, and get organised
-cask "notion"
-# Automatic time and productivity tracking app
-cask "timing"
-# Create, maintain, and interact with Xcode projects at scale
-cask "tuist"
-# Open-source code editor
-cask "visual-studio-code"
-# Open-source code editor
-cask "visual-studio-code@insiders"
-cask "1password"
-cask "google-chrome"
-cask "claude"
-cask "coteditor"
-cask "line"
-cask "1password-cli"
-brew "codex", args: ["HEAD"]
-cask "claude-code"
-cask "antigravity"
-brew "gemini-cli"
-brew "docker"
-brew "supabase/tap/supabase"
-brew "tmux"
-brew "tree-sitter"
+
+# Package Managers
+brew "cocoapods"
 brew "uv"
-cask "slack"
+brew "yarn"
+
+# Version Control
+brew "gh"
+brew "ghq"
+brew "git"
+brew "git-lfs"
+brew "tig"
+
+# Build & Compilation
+brew "golangci-lint"
+brew "goreleaser"
+brew "gradle"
+brew "make"
+brew "openapi-generator"
+brew "swift-format"
+brew "swiftformat"
+brew "tree-sitter"
+brew "xcbeautify"
+brew "xcode-build-server"
+brew "xcodegen"
+
+# CLI Utilities
+brew "ccusage"
+brew "cloc"
+brew "coreutils"
+brew "expect"
+brew "ffmpeg"
+brew "fzf"
+brew "gnu-sed"
+brew "gnu-time"
+brew "imagemagick"
+brew "ios-deploy"
+brew "jq"
+brew "multitime"
+brew "pandoc"
+brew "peco"
+brew "poppler"
+brew "ripgrep"
+brew "smartmontools"
+brew "tailscale"
+brew "tmux"
+brew "tree"
+brew "wget"
+brew "xmlstarlet"
+
+# Security & Encryption
+brew "gnupg"
+brew "pinentry"
+brew "pinentry-mac"
+
+# Shells & Editors
+brew "fish"
+brew "neovim"
+brew "zsh-autosuggestions"
+
+# AI Tools
+brew "codex", args: ["HEAD"]
+brew "gemini-cli"
+
+# Cloud
+brew "supabase/tap/supabase"
+
+# Xcode
+brew "xcodesorg/made/xcodes"
+
+# Apps: Development
+cask "android-platform-tools"
+cask "cursor"
+cask "docker-desktop"
+cask "flutter"
+cask "fork"
+cask "ghostty"
+cask "jetbrains-toolbox"
+cask "tuist"
+cask "visual-studio-code"
+cask "visual-studio-code@insiders"
+cask "windsurf"
+cask "zed"
+cask "trae"
+
+# Apps: AI
+cask "antigravity"
+cask "claude"
+cask "claude-code"
 if RUBY_PLATFORM =~ /arm64|aarch64/
   cask "chatgpt"
 end
 
-# Multiplayer code editor
-cask "zed"
+# Apps: Productivity
+cask "1password"
+cask "1password-cli"
+cask "coteditor"
+cask "figma"
+cask "gcloud-cli"
+cask "google-chrome"
+cask "inkdrop"
+cask "karabiner-elements"
+cask "line"
+cask "notion"
+cask "slack"
+cask "timing"
+
+# Apps: TeX
+cask "basictex"
+
+# Fonts
+cask "font-jetbrains-mono-nerd-font"
+
+# VS Code Extensions
 vscode "anthropic.claude-code"
 vscode "christian-kohler.npm-intellisense"
 vscode "docker.docker"
