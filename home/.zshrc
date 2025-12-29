@@ -1,12 +1,12 @@
 # Prompt: built-in minimal Git prompt via vcs_info (no external deps)
-autoload -Uz vcs_info
+autoload -Uz vcs_info add-zsh-hook
 setopt prompt_subst
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git*' formats '%F{magenta}(%b%u)%f'
 zstyle ':vcs_info:git*' actionformats '%F{magenta}(%b|%a%u)%f'
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' stagedstr '+'
-precmd() { vcs_info }
+add-zsh-hook precmd vcs_info
 PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f ${vcs_info_msg_0_}%# '
 setopt hist_ignore_all_dups inc_append_history hist_no_store hist_reduce_blanks share_history
 HISTFILE=~/.zsh_history

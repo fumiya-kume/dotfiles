@@ -86,7 +86,7 @@ if [[ -d "$DOTFILES_DIR/.gnupg" ]]; then
     [[ -e "$f" ]] || continue
     name="$(basename "$f")"
     case "$name" in
-      gpg-agent.conf|gpg.conf|pubring.kbx|trustdb.gpg|sshcontrol)
+      gpg-agent.conf|gpg.conf|pubring.kbx|sshcontrol)
         link "$f" "$HOME/.gnupg/$name"
         ;;
       *)
