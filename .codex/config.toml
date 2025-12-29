@@ -18,6 +18,7 @@ web_search = true
 
 [features]
 web_search_request = true
+skills = true
 
 [sandbox_workspace_write]
 network_access = true
