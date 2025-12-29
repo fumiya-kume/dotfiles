@@ -68,7 +68,6 @@ h() {
   eval "$selected"
 }
 # hide typed 'h' line just before execution
-autoload -Uz add-zsh-hook
 hide_h_preexec() {
   if [[ "$1" == "h" ]]; then
     print -n -- $'\e[1A\e[2K\r'
