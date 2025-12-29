@@ -61,11 +61,19 @@ if [[ -d "$DOTFILES_DIR/.ssh" ]]; then
   log "Setting up .ssh directory..."
   mkdir -p "$HOME/.ssh"
   chmod 700 "$HOME/.ssh"
+  # Whitelist: config, known_hosts, public keys only
   for f in "$DOTFILES_DIR"/.ssh/*; do
     [[ -e "$f" ]] || continue
     name="$(basename "$f")"
-    chmod 600 "$f"
-    link "$f" "$HOME/.ssh/$name"
+    case "$name" in
+      config|known_hosts|*.pub)
+        chmod 600 "$f"
+        link "$f" "$HOME/.ssh/$name"
+        ;;
+      *)
+        warn "Skipped (not whitelisted): .ssh/$name"
+        ;;
+    esac
   done
 fi
 
@@ -73,10 +81,18 @@ if [[ -d "$DOTFILES_DIR/.gnupg" ]]; then
   log "Setting up .gnupg directory..."
   mkdir -p "$HOME/.gnupg"
   chmod 700 "$HOME/.gnupg"
+  # Whitelist: config files and public keyring only
   for f in "$DOTFILES_DIR"/.gnupg/*; do
     [[ -e "$f" ]] || continue
     name="$(basename "$f")"
-    link "$f" "$HOME/.gnupg/$name"
+    case "$name" in
+      gpg-agent.conf|gpg.conf|pubring.kbx|trustdb.gpg|sshcontrol)
+        link "$f" "$HOME/.gnupg/$name"
+        ;;
+      *)
+        warn "Skipped (not whitelisted): .gnupg/$name"
+        ;;
+    esac
   done
 fi
 
