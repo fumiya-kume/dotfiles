@@ -163,6 +163,24 @@ setup_uv_completion() {
 }
 setup_uv_completion
 
+install_codex_cli() {
+  if command -v codex >/dev/null 2>&1; then
+    return 0
+  fi
+
+  if ! command -v npm >/dev/null 2>&1; then
+    warn "npm not found; skipping Codex CLI install."
+    return 0
+  fi
+
+  log "Installing Codex CLI via npm..."
+  if npm install -g @openai/codex; then
+    return 0
+  fi
+
+  warn "Codex CLI install failed. Retry with: npm install -g @openai/codex"
+}
+
 # Homebrew setup (always runs)
 if [[ ! -x "/opt/homebrew/bin/brew" && ! -x "/usr/local/bin/brew" ]]; then
   if [[ -f "$DOTFILES_DIR/scripts/install-homebrew.sh" ]]; then
@@ -181,6 +199,8 @@ if command -v brew >/dev/null 2>&1 && [[ -f "$HOME/.Brewfile" ]]; then
   log "Running brew bundle..."
   brew bundle --global
 fi
+
+install_codex_cli
 
 # Optional: additional package managers
 if [[ "${1:-}" == "--with-packages" ]]; then

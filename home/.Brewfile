@@ -72,7 +72,7 @@ brew "neovim"
 brew "zsh-autosuggestions"
 
 # AI Tools
-brew "codex", args: ["HEAD"]
+# Codex CLI is installed via npm (see install.sh)
 brew "gemini-cli"
 
 # Cloud
