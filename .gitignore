@@ -23,14 +23,6 @@
 **/goose
 **/yarn
 
-# Chezmoi (state and config files)
-.config/chezmoi/
-.chezmoi*
-.chezmoiignore
-.chezmoiremove
-.chezmoiroot
-.chezmoiversion
-
 # Application configs with credentials
 config/gh/hosts.yml
 config/.config/gcloud/
