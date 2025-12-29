@@ -1,6 +1,7 @@
 [user]
 	email = fumiya.kume@hotmail.com
 	name = fumiya-kume
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEie6vfBM91NAcbTYgpZSmPl5M0RR3XNpeRC5KYqnImY
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
@@ -16,16 +17,9 @@
 [commit]
 	gpgsign = true
 [gpg]
-[core]
-        excludesfile = ~/.gitignore
-[gpg]
-        format = ssh
-        program = gpg
-[user]
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEie6vfBM91NAcbTYgpZSmPl5M0RR3XNpeRC5KYqnImY
-
+	format = ssh
+	program = gpg
 [gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-
-[commit]
-  gpgsign = true
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[core]
+	excludesfile = ~/.gitignore
