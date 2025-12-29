@@ -113,7 +113,7 @@ cask "gcloud-cli"
 cask "google-chrome"
 cask "inkdrop"
 cask "karabiner-elements"
-cask "line"
+# LINE is no longer available as a Homebrew cask; install it from the Mac App Store.
 cask "notion"
 cask "slack"
 cask "timing"
