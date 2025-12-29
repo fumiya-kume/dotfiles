@@ -15,3 +15,9 @@ trust_level = "trusted"
 [tools]
 view_image = true
 web_search = true
+
+[features]
+web_search_request = true
+
+[sandbox_workspace_write]
+network_access = true
