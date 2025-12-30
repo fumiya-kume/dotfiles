@@ -9,5 +9,5 @@ fi
 
 echo "Installing Homebrew..."
 echo "This requires administrator privileges."
-sudo -v  # Prompt for password and cache credentials
+sudo -v # Prompt for password and cache credentials
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
