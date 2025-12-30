@@ -61,14 +61,13 @@ h() {
   emulate -L zsh
   local selected src
   src=$(builtin fc -ln 1 2>/dev/null) || return
-  selected=$(printf '%s\n' "${(f)src}" | awk '{a[NR]=$0} END{for(i=NR;i>=1;i--)if(!seen[a[i]]++)print a[i]}' | peco) || return
+  selected=$(print -l -- "${(f)src}" | awk '{a[NR]=$0} END{for(i=NR;i>=1;i--)if(!seen[a[i]]++)print a[i]}' | peco) || return
   [[ -z "$selected" ]] && return
   print -s -- "$selected"
   echo "+ $selected"
   eval "$selected"
 }
 # hide typed 'h' line just before execution
-autoload -Uz add-zsh-hook
 hide_h_preexec() {
   if [[ "$1" == "h" ]]; then
     print -n -- $'\e[1A\e[2K\r'

@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 defaults write com.apple.finder AppleShowAllFiles TRUE
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder QLEnableTextSelection -bool true
