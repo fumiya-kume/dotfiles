@@ -35,6 +35,7 @@ should_skip() {
     .git|.gitignore|.gitattributes|.gitmodules) return 0 ;;
     *.swp|*.swo|*~) return 0 ;;
     .*.bak|.*.backup) return 0 ;;
+    .env|.env.*|*.secret) return 0 ;;
     *) return 1 ;;
   esac
 }
