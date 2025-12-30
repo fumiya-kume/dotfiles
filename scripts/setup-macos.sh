@@ -9,8 +9,8 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
 defaults write com.apple.dock autohide -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -boolean true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true && \
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true &&
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 defaults write com.apple.dock static-only -bool true
 defaults write com.apple.TextEdit RichText -int 0
 sudo chflags nohidden /Volumes
@@ -21,9 +21,9 @@ defaults write com.apple.menuextra.clock DateFormat -string "M\u6708d\u65e5(EEE)
 defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
 
 defaults write com.apple.systemuiserver menuExtras -array \
-    "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-    "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-    "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-    "/System/Library/CoreServices/Menu Extras/Clock.menu"
+  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+  "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+  "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 killall Finder

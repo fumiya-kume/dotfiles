@@ -30,12 +30,12 @@ link() {
 should_skip() {
   local name="$1"
   case "$name" in
-    .|..) return 0 ;;
-    .DS_Store|.localized) return 0 ;;
-    .git|.gitignore|.gitattributes|.gitmodules) return 0 ;;
-    *.swp|*.swo|*~) return 0 ;;
-    .*.bak|.*.backup) return 0 ;;
-    .env|.env.*|*.secret) return 0 ;;
+    . | ..) return 0 ;;
+    .DS_Store | .localized) return 0 ;;
+    .git | .gitignore | .gitattributes | .gitmodules) return 0 ;;
+    *.swp | *.swo | *~) return 0 ;;
+    .*.bak | .*.backup) return 0 ;;
+    .env | .env.* | *.secret) return 0 ;;
     *) return 1 ;;
   esac
 }
@@ -67,7 +67,7 @@ if [[ -d "$DOTFILES_DIR/.ssh" ]]; then
     [[ -e "$f" ]] || continue
     name="$(basename "$f")"
     case "$name" in
-      config|known_hosts|*.pub)
+      config | known_hosts | *.pub)
         chmod 600 "$f"
         link "$f" "$HOME/.ssh/$name"
         ;;
@@ -87,7 +87,7 @@ if [[ -d "$DOTFILES_DIR/.gnupg" ]]; then
     [[ -e "$f" ]] || continue
     name="$(basename "$f")"
     case "$name" in
-      gpg-agent.conf|gpg.conf|pubring.kbx|sshcontrol)
+      gpg-agent.conf | gpg.conf | pubring.kbx | sshcontrol)
         link "$f" "$HOME/.gnupg/$name"
         ;;
       *)
@@ -156,7 +156,7 @@ setup_uv_completion() {
     "uv --generate-completion zsh" \
     "uv completions zsh"; do
     if output=$(eval "$cmd" 2>/dev/null) && [[ -n "$output" ]]; then
-      printf '%s\n' "$output" > "$out"
+      printf '%s\n' "$output" >"$out"
       log "Generated uv zsh completion: $out"
       return 0
     fi
