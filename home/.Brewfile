@@ -2,7 +2,6 @@
 tap "fumiya-kume/mdefaults"
 tap "oven-sh/bun"
 tap "supabase/tap"
-tap "xcodesorg/made"
 
 # Languages & Runtimes
 brew "deno"
@@ -80,7 +79,7 @@ brew "gemini-cli"
 brew "supabase/tap/supabase"
 
 # Xcode
-brew "xcodesorg/made/xcodes"
+brew "xcodes"
 
 # Apps: Development
 cask "android-platform-tools"
