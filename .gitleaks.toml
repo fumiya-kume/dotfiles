@@ -1,0 +1,5 @@
+[allowlist]
+paths = [
+  ".config/1Password/",
+  ".ssh/config",
+]
